@@ -21,7 +21,6 @@ public class LogicalProjectConverterRule extends ConverterRule {
     @Override
     public RelNode convert(RelNode rel) {
         final LogicalProject source = (LogicalProject)rel;
-        final RelTraitSet traitSet = source.getTraitSet().replace(LimeRel.Convention);
 
         final RelNode input = convert(
             source.getInput(),
@@ -29,7 +28,7 @@ public class LogicalProjectConverterRule extends ConverterRule {
 
         return new ProjectLimeRel(
                 source.getCluster(),
-                traitSet,
+                source.getTraitSet().replace(LimeRel.Convention),
                 input,
                 source.getProjects(),
                 source.getRowType());

@@ -21,7 +21,14 @@ public class LogicalFilterConverterRule extends ConverterRule {
     @Override
     public RelNode convert(RelNode rel) {
         final LogicalFilter source = (LogicalFilter)rel;
-        final RelTraitSet traitSet = source.getTraitSet().replace(LimeRel.Convention);
-        return new FilterLimeRel(source.getCluster(), traitSet, source.getInput(), source.getCondition());
+        
+        final RelNode input = convert(source.getInput(),
+                source.getInput().getTraitSet().replace(LimeRel.Convention));
+
+        return new FilterLimeRel(
+            source.getCluster(),
+            source.getTraitSet().replace(LimeRel.Convention),
+            input,
+            source.getCondition());
     }
 }

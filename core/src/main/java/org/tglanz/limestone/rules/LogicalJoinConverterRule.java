@@ -15,21 +15,25 @@ public class LogicalJoinConverterRule extends ConverterRule {
     public static final RelOptRule Instance = new LogicalJoinConverterRule();
 
     private LogicalJoinConverterRule() {
-        super(LogicalJoin.class, Convention.NONE, LimeRel.Convention,  "LimeLogicalJoinConverterRule");
+        super(LogicalJoin.class, Convention.NONE, LimeRel.Convention,  "LogicalJoinConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }
 
     @Override
     public RelNode convert(RelNode rel) {
         final LogicalJoin source = (LogicalJoin)rel;
-        final RelOptCluster cluster = source.getCluster();
-        final RelTraitSet traitSet = source.getTraitSet().replace(LimeRel.Convention);
+
+        final RelNode left = convert(source.getLeft(),
+            source.getLeft().getTraitSet().replace(LimeRel.Convention));
+        
+        final RelNode right = convert(source.getRight(),
+            source.getLeft().getTraitSet().replace(LimeRel.Convention));
 
         return new JoinLimeRel(
-                cluster,
-                traitSet,
-                source.getLeft(),
-                source.getRight(),
+                source.getCluster(),
+                source.getTraitSet().replace(LimeRel.Convention),
+                left,
+                right,
                 source.getCondition(),
                 source.getVariablesSet(),
                 source.getJoinType()
