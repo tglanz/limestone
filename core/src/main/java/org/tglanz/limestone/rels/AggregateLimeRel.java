@@ -4,8 +4,11 @@ import org.apache.calcite.plan.RelOptCluster;
 import org.apache.calcite.plan.RelTraitSet;
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.core.Aggregate;
+<<<<<<< HEAD
 import org.apache.calcite.rel.type.RelDataType;
 import org.apache.calcite.rex.RexNode;
+=======
+>>>>>>> more
 import org.apache.calcite.util.ImmutableBitSet;
 import org.apache.calcite.rel.core.AggregateCall;
 
@@ -23,7 +26,11 @@ public class AggregateLimeRel
                             List<ImmutableBitSet> groupSets,
                             List<AggregateCall> aggCalls) {
         super(cluster, traitSet, input, groupSet, groupSets, aggCalls);
+<<<<<<< HEAD
         assert getConvention() == LimeRel.Convention;
+=======
+        assert getConvention() == Convention;
+>>>>>>> more
     }
 
     @Override
