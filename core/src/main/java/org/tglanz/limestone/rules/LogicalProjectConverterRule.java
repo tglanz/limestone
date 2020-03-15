@@ -2,10 +2,6 @@ package org.tglanz.limestone.rules;
 
 import org.apache.calcite.plan.Convention;
 import org.apache.calcite.plan.RelOptRule;
-<<<<<<< HEAD
-import org.apache.calcite.plan.RelTraitSet;
-=======
->>>>>>> more
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalProject;

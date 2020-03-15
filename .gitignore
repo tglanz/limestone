@@ -1,17 +1,22 @@
-<<<<<<< HEAD
-core/.factorypath
-core/.classpath
-core/.project
-core/target/
-core/.settings/
-core/.idea/
-=======
 .project
+core/.project
+tpc/.project
+
+.factorypath
+core/.factorypath
+tpc/.factorypath
+
+.classpath
+core/.classpath
+tpc/.classpath
+
+.settings/
+core/.settings/
+tpc/.settings/
 
 .idea/libraries/
 core/.idea/libraries/
 tpc/.idea/libraries/
-
 
 target/
 core/target/
@@ -20,4 +25,3 @@ tpc/target/
 limestone-aggregator.iml
 core/limestone-core.iml
 tpc/limestone-tpc.iml
->>>>>>> more

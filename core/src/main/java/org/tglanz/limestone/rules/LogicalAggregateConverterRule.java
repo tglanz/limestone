@@ -1,15 +1,5 @@
 package org.tglanz.limestone.rules;
 
-<<<<<<< HEAD
-import org.apache.calcite.plan.Convention;
-import org.apache.calcite.plan.RelOptRule;
-import org.apache.calcite.plan.RelTraitSet;
-import org.apache.calcite.rel.RelNode;
-import org.apache.calcite.rel.convert.ConverterRule;
-import org.apache.calcite.rel.logical.LogicalAggregate;
-import org.tglanz.limestone.rels.LimeRel;
-import org.tglanz.limestone.rels.AggregateLimeRel;
-=======
 import org.tglanz.limestone.rels.AggregateLimeRel;
 import org.tglanz.limestone.rels.LimeRel;
 import org.apache.calcite.plan.Convention;
@@ -17,7 +7,6 @@ import org.apache.calcite.plan.RelOptRule;
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalAggregate;
->>>>>>> more
 
 public class LogicalAggregateConverterRule extends ConverterRule {
 

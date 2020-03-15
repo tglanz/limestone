@@ -19,11 +19,7 @@ public class ProjectLimeRel
                           List<? extends RexNode> projects,
                           RelDataType rowType) {
         super(cluster, traitSet, input, projects, rowType);
-<<<<<<< HEAD
-        assert getConvention() == LimeRel.Convention;
-=======
         assert getConvention() == Convention;
->>>>>>> more
     }
 
     @Override
