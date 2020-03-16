@@ -1,5 +1,5 @@
-2020-03-16 17:33:01,993 DEBUG o.t.l.t.TpcSchemaProvider [main] retrieved schema: DS
-2020-03-16 17:33:02,462 INFO o.t.l.t.TpcRunner [main] planning query
+2020-03-16 18:03:49,211 DEBUG o.t.l.t.TpcSchemaProvider [main] retrieved schema: DS
+2020-03-16 18:03:49,646 INFO o.t.l.t.TpcRunner [main] planning query
 select count(*), store.s_store_name
 from store_sales
 left join store on
@@ -8,16 +8,16 @@ group by store.s_store_name
 order by count(*), store.s_store_name
 limit 100
 
-2020-03-16 17:33:02,550 DEBUG o.a.c.s.parser [main] Reduced `store_sales`.`ss_store_sk` = `store`.`s_store_sk`
-2020-03-16 17:33:02,748 TRACE o.a.c.p.RelOptPlanner [main] new LogicalTableScan#0
-2020-03-16 17:33:02,749 TRACE o.a.c.p.RelOptPlanner [main] new LogicalTableScan#1
-2020-03-16 17:33:02,755 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#2
-2020-03-16 17:33:02,759 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#3
-2020-03-16 17:33:02,954 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#4
-2020-03-16 17:33:02,956 TRACE o.a.c.p.RelOptPlanner [main] new LogicalAggregate#5
-2020-03-16 17:33:02,957 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#6
-2020-03-16 17:33:02,959 TRACE o.a.c.p.RelOptPlanner [main] new LogicalSort#7
-2020-03-16 17:33:02,975 DEBUG o.a.c.sql2rel [main] Plan after converting SqlNode to RelNode
+2020-03-16 18:03:49,714 DEBUG o.a.c.s.parser [main] Reduced `store_sales`.`ss_store_sk` = `store`.`s_store_sk`
+2020-03-16 18:03:49,907 TRACE o.a.c.p.RelOptPlanner [main] new LogicalTableScan#0
+2020-03-16 18:03:49,908 TRACE o.a.c.p.RelOptPlanner [main] new LogicalTableScan#1
+2020-03-16 18:03:49,914 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#2
+2020-03-16 18:03:49,918 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#3
+2020-03-16 18:03:50,171 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#4
+2020-03-16 18:03:50,172 TRACE o.a.c.p.RelOptPlanner [main] new LogicalAggregate#5
+2020-03-16 18:03:50,174 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#6
+2020-03-16 18:03:50,176 TRACE o.a.c.p.RelOptPlanner [main] new LogicalSort#7
+2020-03-16 18:03:50,190 DEBUG o.a.c.sql2rel [main] Plan after converting SqlNode to RelNode
 LogicalSort(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100])
   LogicalProject(EXPR$0=[$1], s_store_name=[$0])
     LogicalAggregate(group=[{0}], EXPR$0=[COUNT()])
@@ -26,14 +26,14 @@ LogicalSort(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100])
           LogicalTableScan(table=[[DS, STORE_SALES]])
           LogicalTableScan(table=[[DS, STORE]])
 
-2020-03-16 17:33:02,982 TRACE o.a.c.p.RelOptPlanner [main] new EnumerableTableScan#8
-2020-03-16 17:33:02,982 TRACE o.a.c.p.RelOptPlanner [main] new EnumerableTableScan#9
-2020-03-16 17:33:02,989 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#10
-2020-03-16 17:33:02,990 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#11
-2020-03-16 17:33:02,991 TRACE o.a.c.p.RelOptPlanner [main] new LogicalAggregate#12
-2020-03-16 17:33:02,991 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#13
-2020-03-16 17:33:02,996 TRACE o.a.c.p.RelOptPlanner [main] new LogicalSort#14
-2020-03-16 17:33:03,004 INFO o.t.l.t.TpcRunner [main] initial relational expression
+2020-03-16 18:03:50,195 TRACE o.a.c.p.RelOptPlanner [main] new EnumerableTableScan#8
+2020-03-16 18:03:50,195 TRACE o.a.c.p.RelOptPlanner [main] new EnumerableTableScan#9
+2020-03-16 18:03:50,202 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#10
+2020-03-16 18:03:50,203 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#11
+2020-03-16 18:03:50,203 TRACE o.a.c.p.RelOptPlanner [main] new LogicalAggregate#12
+2020-03-16 18:03:50,204 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#13
+2020-03-16 18:03:50,209 TRACE o.a.c.p.RelOptPlanner [main] new LogicalSort#14
+2020-03-16 18:03:50,220 INFO o.t.l.t.TpcRunner [main] initial relational expression
 14:LogicalSort(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100])
   13:LogicalProject(EXPR$0=[$1], s_store_name=[$0])
     12:LogicalAggregate(group=[{0}], EXPR$0=[COUNT()])
@@ -42,57 +42,57 @@ LogicalSort(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100])
           8:EnumerableTableScan(table=[[DS, STORE_SALES]])
           9:EnumerableTableScan(table=[[DS, STORE]])
 
-2020-03-16 17:33:03,005 INFO o.t.l.t.TpcRunner [main] transforming relational expression
-2020-03-16 17:33:03,014 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#15
-2020-03-16 17:33:03,038 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#15:Subset#0.ENUMERABLE.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(2880404.0, 2880405.0, 0.0)
-2020-03-16 17:33:03,039 TRACE o.a.c.p.RelOptPlanner [main] Register rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES]) in rel#15:Subset#0.ENUMERABLE.[]
-2020-03-16 17:33:03,041 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#15:Subset#0.ENUMERABLE.[]] is 0.0
-2020-03-16 17:33:03,044 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])]
-2020-03-16 17:33:03,046 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#16
-2020-03-16 17:33:03,046 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#16:Subset#1.ENUMERABLE.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(12.0, 13.0, 0.0)
-2020-03-16 17:33:03,047 TRACE o.a.c.p.RelOptPlanner [main] Register rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE]) in rel#16:Subset#1.ENUMERABLE.[]
-2020-03-16 17:33:03,047 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#16:Subset#1.ENUMERABLE.[]] is 0.0
-2020-03-16 17:33:03,047 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])]
-2020-03-16 17:33:03,047 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#17
-2020-03-16 17:33:03,048 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#18
-2020-03-16 17:33:03,050 TRACE o.a.c.p.RelOptPlanner [main] Register rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left) in rel#18:Subset#2.NONE.[]
-2020-03-16 17:33:03,052 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#15:Subset#0.ENUMERABLE.[]] to its parent [rel#18:Subset#2.NONE.[]] is 0.0 (parent importance=0.0, child cost=5760809.0, parent cost=1.0E30)
-2020-03-16 17:33:03,053 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#15:Subset#0.ENUMERABLE.[]] is 0.0
-2020-03-16 17:33:03,054 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#16:Subset#1.ENUMERABLE.[]] to its parent [rel#18:Subset#2.NONE.[]] is 0.0 (parent importance=0.0, child cost=25.0, parent cost=1.0E30)
-2020-03-16 17:33:03,054 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#16:Subset#1.ENUMERABLE.[]] is 0.0
-2020-03-16 17:33:03,054 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#18:Subset#2.NONE.[]] is 0.0
-2020-03-16 17:33:03,054 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)]
-2020-03-16 17:33:03,055 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#19
-2020-03-16 17:33:03,056 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#20
-2020-03-16 17:33:03,057 TRACE o.a.c.p.RelOptPlanner [main] Register rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28) in rel#20:Subset#3.NONE.[]
-2020-03-16 17:33:03,057 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#18:Subset#2.NONE.[]] to its parent [rel#20:Subset#3.NONE.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:03,057 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#18:Subset#2.NONE.[]] is 0.0
-2020-03-16 17:33:03,057 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#20:Subset#3.NONE.[]] is 0.0
-2020-03-16 17:33:03,058 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)]
-2020-03-16 17:33:03,058 TRACE o.a.c.p.RelOptPlanner [main] new LogicalAggregate#21
-2020-03-16 17:33:03,058 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#22
-2020-03-16 17:33:03,059 TRACE o.a.c.p.RelOptPlanner [main] Register rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()) in rel#22:Subset#4.NONE.[]
-2020-03-16 17:33:03,059 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#20:Subset#3.NONE.[]] to its parent [rel#22:Subset#4.NONE.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:03,060 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#20:Subset#3.NONE.[]] is 0.0
-2020-03-16 17:33:03,060 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#22:Subset#4.NONE.[]] is 0.0
-2020-03-16 17:33:03,060 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:03,060 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#23
-2020-03-16 17:33:03,061 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#24
-2020-03-16 17:33:03,061 TRACE o.a.c.p.RelOptPlanner [main] Register rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0) in rel#24:Subset#5.NONE.[]
-2020-03-16 17:33:03,061 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#22:Subset#4.NONE.[]] to its parent [rel#24:Subset#5.NONE.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:03,062 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#22:Subset#4.NONE.[]] is 0.0
-2020-03-16 17:33:03,062 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#24:Subset#5.NONE.[]] is 0.0
-2020-03-16 17:33:03,062 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)]
-2020-03-16 17:33:03,062 TRACE o.a.c.p.RelOptPlanner [main] new LogicalSort#25
-2020-03-16 17:33:03,063 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#26
-2020-03-16 17:33:03,063 TRACE o.a.c.p.RelOptPlanner [main] Register rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100) in rel#26:Subset#6.NONE.[0, 1]
-2020-03-16 17:33:03,063 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#24:Subset#5.NONE.[]] to its parent [rel#26:Subset#6.NONE.[0, 1]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:03,064 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#24:Subset#5.NONE.[]] is 0.0
-2020-03-16 17:33:03,064 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#26:Subset#6.NONE.[0, 1]] is 0.0
-2020-03-16 17:33:03,064 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalSortConverterRule(in:NONE,out:LimeConvention)] rels [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
-2020-03-16 17:33:03,064 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#27
-2020-03-16 17:33:03,070 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 1/1; PHASE = PRE_PROCESS_MDR; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:03,244 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,221 INFO o.t.l.t.TpcRunner [main] transforming relational expression
+2020-03-16 18:03:50,230 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#15
+2020-03-16 18:03:50,247 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#15:Subset#0.ENUMERABLE.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(2880404.0, 2880405.0, 0.0)
+2020-03-16 18:03:50,250 TRACE o.a.c.p.RelOptPlanner [main] Register rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES]) in rel#15:Subset#0.ENUMERABLE.[]
+2020-03-16 18:03:50,252 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#15:Subset#0.ENUMERABLE.[]] is 0.0
+2020-03-16 18:03:50,257 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])]
+2020-03-16 18:03:50,258 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#16
+2020-03-16 18:03:50,259 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#16:Subset#1.ENUMERABLE.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(12.0, 13.0, 0.0)
+2020-03-16 18:03:50,261 TRACE o.a.c.p.RelOptPlanner [main] Register rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE]) in rel#16:Subset#1.ENUMERABLE.[]
+2020-03-16 18:03:50,262 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#16:Subset#1.ENUMERABLE.[]] is 0.0
+2020-03-16 18:03:50,263 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])]
+2020-03-16 18:03:50,264 TRACE o.a.c.p.RelOptPlanner [main] new LogicalJoin#17
+2020-03-16 18:03:50,268 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#18
+2020-03-16 18:03:50,269 TRACE o.a.c.p.RelOptPlanner [main] Register rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left) in rel#18:Subset#2.NONE.[]
+2020-03-16 18:03:50,270 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#15:Subset#0.ENUMERABLE.[]] to its parent [rel#18:Subset#2.NONE.[]] is 0.0 (parent importance=0.0, child cost=5760809.0, parent cost=1.0E30)
+2020-03-16 18:03:50,271 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#15:Subset#0.ENUMERABLE.[]] is 0.0
+2020-03-16 18:03:50,272 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#16:Subset#1.ENUMERABLE.[]] to its parent [rel#18:Subset#2.NONE.[]] is 0.0 (parent importance=0.0, child cost=25.0, parent cost=1.0E30)
+2020-03-16 18:03:50,273 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#16:Subset#1.ENUMERABLE.[]] is 0.0
+2020-03-16 18:03:50,273 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#18:Subset#2.NONE.[]] is 0.0
+2020-03-16 18:03:50,274 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)]
+2020-03-16 18:03:50,274 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#19
+2020-03-16 18:03:50,275 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#20
+2020-03-16 18:03:50,275 TRACE o.a.c.p.RelOptPlanner [main] Register rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28) in rel#20:Subset#3.NONE.[]
+2020-03-16 18:03:50,275 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#18:Subset#2.NONE.[]] to its parent [rel#20:Subset#3.NONE.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:50,275 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#18:Subset#2.NONE.[]] is 0.0
+2020-03-16 18:03:50,276 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#20:Subset#3.NONE.[]] is 0.0
+2020-03-16 18:03:50,276 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)]
+2020-03-16 18:03:50,276 TRACE o.a.c.p.RelOptPlanner [main] new LogicalAggregate#21
+2020-03-16 18:03:50,276 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#22
+2020-03-16 18:03:50,277 TRACE o.a.c.p.RelOptPlanner [main] Register rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()) in rel#22:Subset#4.NONE.[]
+2020-03-16 18:03:50,277 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#20:Subset#3.NONE.[]] to its parent [rel#22:Subset#4.NONE.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:50,277 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#20:Subset#3.NONE.[]] is 0.0
+2020-03-16 18:03:50,277 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#22:Subset#4.NONE.[]] is 0.0
+2020-03-16 18:03:50,277 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:50,277 TRACE o.a.c.p.RelOptPlanner [main] new LogicalProject#23
+2020-03-16 18:03:50,278 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#24
+2020-03-16 18:03:50,278 TRACE o.a.c.p.RelOptPlanner [main] Register rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0) in rel#24:Subset#5.NONE.[]
+2020-03-16 18:03:50,278 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#22:Subset#4.NONE.[]] to its parent [rel#24:Subset#5.NONE.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:50,278 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#22:Subset#4.NONE.[]] is 0.0
+2020-03-16 18:03:50,279 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#24:Subset#5.NONE.[]] is 0.0
+2020-03-16 18:03:50,279 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)]
+2020-03-16 18:03:50,279 TRACE o.a.c.p.RelOptPlanner [main] new LogicalSort#25
+2020-03-16 18:03:50,280 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#26
+2020-03-16 18:03:50,281 TRACE o.a.c.p.RelOptPlanner [main] Register rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100) in rel#26:Subset#6.NONE.[0, 1]
+2020-03-16 18:03:50,281 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#24:Subset#5.NONE.[]] to its parent [rel#26:Subset#6.NONE.[0, 1]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:50,282 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#24:Subset#5.NONE.[]] is 0.0
+2020-03-16 18:03:50,282 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#26:Subset#6.NONE.[0, 1]] is 0.0
+2020-03-16 18:03:50,283 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [LogicalSortConverterRule(in:NONE,out:LimeConvention)] rels [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
+2020-03-16 18:03:50,283 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#27
+2020-03-16 18:03:50,284 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 1/1; PHASE = PRE_PROCESS_MDR; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:50,423 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -175,8 +175,8 @@ digraph G {
 	subset26 -> rel25; rel25 -> subset24;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0}
 
-2020-03-16 17:33:03,249 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 2/1; PHASE = PRE_PROCESS; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:03,261 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,426 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 2/1; PHASE = PRE_PROCESS; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:50,436 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -259,8 +259,8 @@ digraph G {
 	subset26 -> rel25; rel25 -> subset24;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0}
 
-2020-03-16 17:33:03,263 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 3/1; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:03,280 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,438 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 3/1; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:50,445 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -343,25 +343,25 @@ digraph G {
 	subset26 -> rel25; rel25 -> subset24;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0}
 
-2020-03-16 17:33:03,292 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:50,452 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
 rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)] importance 0.0
 rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)] importance 0.0
 rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)] importance 0.0
 rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] importance 0.0
-2020-03-16 17:33:03,293 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalSortConverterRule(in:NONE,out:LimeConvention)] rels [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
-2020-03-16 17:33:03,295 DEBUG o.a.c.p.RelOptPlanner [main] call#13: Apply rule [LogicalSortConverterRule(in:NONE,out:LimeConvention)] to [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
-2020-03-16 17:33:03,297 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#28
-2020-03-16 17:33:03,298 TRACE o.a.c.p.RelOptPlanner [main] new SortLimeRel#29
-2020-03-16 17:33:03,299 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#29 via LogicalSortConverterRule(in:NONE,out:LimeConvention)
-2020-03-16 17:33:03,300 TRACE o.a.c.p.RelOptPlanner [main] call#13: Rule LogicalSortConverterRule(in:NONE,out:LimeConvention) arguments [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)] created rel#29:SortLimeRel
-2020-03-16 17:33:03,307 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#30
-2020-03-16 17:33:03,458 TRACE o.a.c.p.RelOptPlanner [main] Register rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100) in rel#30:Subset#6.LimeConvention.[0, 1]
-2020-03-16 17:33:03,458 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0
-2020-03-16 17:33:03,459 DEBUG o.a.c.p.RelOptPlanner [main] call#13 generated 1 successors: [rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
-2020-03-16 17:33:03,459 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 4/2; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:03,512 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,453 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalSortConverterRule(in:NONE,out:LimeConvention)] rels [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
+2020-03-16 18:03:50,454 DEBUG o.a.c.p.RelOptPlanner [main] call#13: Apply rule [LogicalSortConverterRule(in:NONE,out:LimeConvention)] to [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
+2020-03-16 18:03:50,455 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#28
+2020-03-16 18:03:50,457 TRACE o.a.c.p.RelOptPlanner [main] new SortLimeRel#29
+2020-03-16 18:03:50,457 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#29 via LogicalSortConverterRule(in:NONE,out:LimeConvention)
+2020-03-16 18:03:50,458 TRACE o.a.c.p.RelOptPlanner [main] call#13: Rule LogicalSortConverterRule(in:NONE,out:LimeConvention) arguments [rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)] created rel#29:SortLimeRel
+2020-03-16 18:03:50,460 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#30
+2020-03-16 18:03:50,633 TRACE o.a.c.p.RelOptPlanner [main] Register rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100) in rel#30:Subset#6.LimeConvention.[0, 1]
+2020-03-16 18:03:50,634 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0
+2020-03-16 18:03:50,635 DEBUG o.a.c.p.RelOptPlanner [main] call#13 generated 1 successors: [rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)]
+2020-03-16 18:03:50,637 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 4/2; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:50,700 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -452,24 +452,24 @@ digraph G {
 	subset30 -> rel29; rel29 -> subset28;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0}
 
-2020-03-16 17:33:03,525 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:50,704 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
 rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)] importance 0.0
 rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)] importance 0.0
 rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] importance 0.0
-2020-03-16 17:33:03,526 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)]
-2020-03-16 17:33:03,531 DEBUG o.a.c.p.RelOptPlanner [main] call#7: Apply rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] to [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)]
-2020-03-16 17:33:03,533 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#31
-2020-03-16 17:33:03,538 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#32
-2020-03-16 17:33:03,547 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#32 via LogicalProjectConverterRule(in:NONE,out:LimeConvention)
-2020-03-16 17:33:03,549 TRACE o.a.c.p.RelOptPlanner [main] call#7: Rule LogicalProjectConverterRule(in:NONE,out:LimeConvention) arguments [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)] created rel#32:ProjectLimeRel
-2020-03-16 17:33:03,551 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#33
-2020-03-16 17:33:03,646 TRACE o.a.c.p.RelOptPlanner [main] Register rel#32:ProjectLimeRel.LimeConvention.[](input=RelSubset#31,s_store_name=$28) in rel#33:Subset#3.LimeConvention.[]
-2020-03-16 17:33:03,647 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
-2020-03-16 17:33:03,648 DEBUG o.a.c.p.RelOptPlanner [main] call#7 generated 1 successors: [rel#32:ProjectLimeRel.LimeConvention.[](input=RelSubset#31,s_store_name=$28)]
-2020-03-16 17:33:03,664 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 5/3; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:03,773 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,705 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)]
+2020-03-16 18:03:50,706 DEBUG o.a.c.p.RelOptPlanner [main] call#7: Apply rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] to [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)]
+2020-03-16 18:03:50,707 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#31
+2020-03-16 18:03:50,709 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#32
+2020-03-16 18:03:50,709 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#32 via LogicalProjectConverterRule(in:NONE,out:LimeConvention)
+2020-03-16 18:03:50,711 TRACE o.a.c.p.RelOptPlanner [main] call#7: Rule LogicalProjectConverterRule(in:NONE,out:LimeConvention) arguments [rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28)] created rel#32:ProjectLimeRel
+2020-03-16 18:03:50,714 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#33
+2020-03-16 18:03:50,766 TRACE o.a.c.p.RelOptPlanner [main] Register rel#32:ProjectLimeRel.LimeConvention.[](input=RelSubset#31,s_store_name=$28) in rel#33:Subset#3.LimeConvention.[]
+2020-03-16 18:03:50,767 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
+2020-03-16 18:03:50,768 DEBUG o.a.c.p.RelOptPlanner [main] call#7 generated 1 successors: [rel#32:ProjectLimeRel.LimeConvention.[](input=RelSubset#31,s_store_name=$28)]
+2020-03-16 18:03:50,768 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 5/3; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:50,892 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -567,23 +567,23 @@ digraph G {
 	subset30 -> rel29; rel29 -> subset28;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:03,776 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:50,898 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
 rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)] importance 0.0
 rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] importance 0.0
-2020-03-16 17:33:03,777 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)]
-2020-03-16 17:33:03,779 DEBUG o.a.c.p.RelOptPlanner [main] call#11: Apply rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] to [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)]
-2020-03-16 17:33:03,786 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#34
-2020-03-16 17:33:03,787 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#35
-2020-03-16 17:33:03,788 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#35 via LogicalProjectConverterRule(in:NONE,out:LimeConvention)
-2020-03-16 17:33:03,789 TRACE o.a.c.p.RelOptPlanner [main] call#11: Rule LogicalProjectConverterRule(in:NONE,out:LimeConvention) arguments [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)] created rel#35:ProjectLimeRel
-2020-03-16 17:33:03,790 TRACE o.a.c.p.RelOptPlanner [main] Register rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0) in rel#28:Subset#5.LimeConvention.[]
-2020-03-16 17:33:03,791 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] to its parent [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:03,793 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] is 0.0
-2020-03-16 17:33:03,794 DEBUG o.a.c.p.RelOptPlanner [main] call#11 generated 1 successors: [rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0)]
-2020-03-16 17:33:03,798 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 6/4; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:03,810 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,899 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] rels [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)]
+2020-03-16 18:03:50,900 DEBUG o.a.c.p.RelOptPlanner [main] call#11: Apply rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)] to [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)]
+2020-03-16 18:03:50,900 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#34
+2020-03-16 18:03:50,901 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#35
+2020-03-16 18:03:50,901 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#35 via LogicalProjectConverterRule(in:NONE,out:LimeConvention)
+2020-03-16 18:03:50,902 TRACE o.a.c.p.RelOptPlanner [main] call#11: Rule LogicalProjectConverterRule(in:NONE,out:LimeConvention) arguments [rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)] created rel#35:ProjectLimeRel
+2020-03-16 18:03:50,903 TRACE o.a.c.p.RelOptPlanner [main] Register rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0) in rel#28:Subset#5.LimeConvention.[]
+2020-03-16 18:03:50,904 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] to its parent [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:50,905 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] is 0.0
+2020-03-16 18:03:50,905 DEBUG o.a.c.p.RelOptPlanner [main] call#11 generated 1 successors: [rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0)]
+2020-03-16 18:03:50,906 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 6/4; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:50,915 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -686,23 +686,23 @@ digraph G {
 	subset30 -> rel29; rel29 -> subset28;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:03,814 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:50,916 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
 rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] importance 0.0
-2020-03-16 17:33:03,815 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)]
-2020-03-16 17:33:03,816 DEBUG o.a.c.p.RelOptPlanner [main] call#5: Apply rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] to [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)]
-2020-03-16 17:33:03,822 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#36
-2020-03-16 17:33:03,823 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#37
-2020-03-16 17:33:03,831 TRACE o.a.c.p.RelOptPlanner [main] new JoinLimeRel#38
-2020-03-16 17:33:03,832 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#38 via LogicalJoinConverterRule(in:NONE,out:LimeConvention)
-2020-03-16 17:33:03,832 TRACE o.a.c.p.RelOptPlanner [main] call#5: Rule LogicalJoinConverterRule(in:NONE,out:LimeConvention) arguments [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)] created rel#38:JoinLimeRel
-2020-03-16 17:33:03,894 TRACE o.a.c.p.RelOptPlanner [main] Register rel#38:JoinLimeRel.LimeConvention.[](left=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left) in rel#31:Subset#2.LimeConvention.[]
-2020-03-16 17:33:03,894 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] to its parent [rel#33:Subset#3.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:03,894 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] is 0.0
-2020-03-16 17:33:03,894 DEBUG o.a.c.p.RelOptPlanner [main] call#5 generated 1 successors: [rel#38:JoinLimeRel.LimeConvention.[](left=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left)]
-2020-03-16 17:33:03,895 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 7/5; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:04,027 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:50,916 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] rels [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)]
+2020-03-16 18:03:50,916 DEBUG o.a.c.p.RelOptPlanner [main] call#5: Apply rule [LogicalJoinConverterRule(in:NONE,out:LimeConvention)] to [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)]
+2020-03-16 18:03:50,917 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#36
+2020-03-16 18:03:50,917 TRACE o.a.c.p.RelOptPlanner [main] new RelSubset#37
+2020-03-16 18:03:50,917 TRACE o.a.c.p.RelOptPlanner [main] new JoinLimeRel#38
+2020-03-16 18:03:50,918 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#38 via LogicalJoinConverterRule(in:NONE,out:LimeConvention)
+2020-03-16 18:03:50,918 TRACE o.a.c.p.RelOptPlanner [main] call#5: Rule LogicalJoinConverterRule(in:NONE,out:LimeConvention) arguments [rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left)] created rel#38:JoinLimeRel
+2020-03-16 18:03:51,000 TRACE o.a.c.p.RelOptPlanner [main] Register rel#38:JoinLimeRel.LimeConvention.[](left=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left) in rel#31:Subset#2.LimeConvention.[]
+2020-03-16 18:03:51,001 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] to its parent [rel#33:Subset#3.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:51,002 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,003 DEBUG o.a.c.p.RelOptPlanner [main] call#5 generated 1 successors: [rel#38:JoinLimeRel.LimeConvention.[](left=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left)]
+2020-03-16 18:03:51,004 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 7/5; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:51,097 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -812,23 +812,24 @@ digraph G {
 	subset30 -> rel29; rel29 -> subset28;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:04,029 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:51,101 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] importance 0.0
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] importance 0.0
-2020-03-16 17:33:04,031 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,036 DEBUG o.a.c.p.RelOptPlanner [main] call#9: Apply rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] to [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,040 TRACE o.a.c.p.RelOptPlanner [main] new AggregateLimeRel#39
-2020-03-16 17:33:04,040 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#39 via LogicalAggregateConverterRule(in:NONE,out:LimeConvention)
-2020-03-16 17:33:04,040 TRACE o.a.c.p.RelOptPlanner [main] call#9: Rule LogicalAggregateConverterRule(in:NONE,out:LimeConvention) arguments [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())] created rel#39:AggregateLimeRel
-2020-03-16 17:33:04,141 TRACE o.a.c.p.RelOptPlanner [main] Register rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()) in rel#34:Subset#4.LimeConvention.[]
-2020-03-16 17:33:04,141 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:04,141 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,143 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
-2020-03-16 17:33:04,144 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,148 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,154 DEBUG o.a.c.p.RelOptPlanner [main] call#9 generated 1 successors: [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,158 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 8/6; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:04,208 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:51,102 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] rels [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,103 DEBUG o.a.c.p.RelOptPlanner [main] call#9: Apply rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)] to [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,105 TRACE o.a.c.p.RelOptPlanner [main] new AggregateLimeRel#39
+2020-03-16 18:03:51,106 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#39 via LogicalAggregateConverterRule(in:NONE,out:LimeConvention)
+2020-03-16 18:03:51,108 TRACE o.a.c.p.RelOptPlanner [main] call#9: Rule LogicalAggregateConverterRule(in:NONE,out:LimeConvention) arguments [rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT())] created rel#39:AggregateLimeRel
+2020-03-16 18:03:51,174 TRACE o.a.c.p.RelOptPlanner [main] Register rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()) in rel#34:Subset#4.LimeConvention.[]
+2020-03-16 18:03:51,175 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:51,175 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,175 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.0E30, parent cost=1.0E30)
+2020-03-16 18:03:51,175 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,175 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,176 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,176 DEBUG o.a.c.p.RelOptPlanner [main] call#9 generated 1 successors: [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,176 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 8/6; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:51,202 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -941,21 +942,22 @@ digraph G {
 	subset30 -> rel29; rel29 -> subset28;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0 rel#34:Subset#4.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:04,222 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:51,205 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
 rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] importance 0.0
+rule [OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] importance 0.0
 rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] importance 0.0
-2020-03-16 17:33:04,226 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])]
-2020-03-16 17:33:04,227 DEBUG o.a.c.p.RelOptPlanner [main] call#1: Apply rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] to [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])]
-2020-03-16 17:33:04,232 TRACE o.a.c.p.RelOptPlanner [main] new TableScanLimeRel#40
-2020-03-16 17:33:04,233 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#40 via EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)
-2020-03-16 17:33:04,237 TRACE o.a.c.p.RelOptPlanner [main] call#1: Rule EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention) arguments [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] created rel#40:TableScanLimeRel
-2020-03-16 17:33:04,261 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#36:Subset#0.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(2880404.0, 2880405.0, 0.0)
-2020-03-16 17:33:04,313 TRACE o.a.c.p.RelOptPlanner [main] Register rel#40:TableScanLimeRel.LimeConvention.[](table=[DS, STORE_SALES]) in rel#36:Subset#0.LimeConvention.[]
-2020-03-16 17:33:04,314 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#36:Subset#0.LimeConvention.[]] to its parent [rel#31:Subset#2.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=5760809.0, parent cost=1.0E30)
-2020-03-16 17:33:04,315 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#36:Subset#0.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,316 DEBUG o.a.c.p.RelOptPlanner [main] call#1 generated 1 successors: [rel#40:TableScanLimeRel.LimeConvention.[](table=[DS, STORE_SALES])]
-2020-03-16 17:33:04,319 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 9/7; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
-2020-03-16 17:33:04,428 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:51,206 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])]
+2020-03-16 18:03:51,207 DEBUG o.a.c.p.RelOptPlanner [main] call#1: Apply rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] to [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])]
+2020-03-16 18:03:51,208 TRACE o.a.c.p.RelOptPlanner [main] new TableScanLimeRel#40
+2020-03-16 18:03:51,209 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#40 via EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)
+2020-03-16 18:03:51,210 TRACE o.a.c.p.RelOptPlanner [main] call#1: Rule EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention) arguments [rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES])] created rel#40:TableScanLimeRel
+2020-03-16 18:03:51,220 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#36:Subset#0.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(2880404.0, 2880405.0, 0.0)
+2020-03-16 18:03:51,241 TRACE o.a.c.p.RelOptPlanner [main] Register rel#40:TableScanLimeRel.LimeConvention.[](table=[DS, STORE_SALES]) in rel#36:Subset#0.LimeConvention.[]
+2020-03-16 18:03:51,243 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#36:Subset#0.LimeConvention.[]] to its parent [rel#31:Subset#2.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=5760809.0, parent cost=1.0E30)
+2020-03-16 18:03:51,243 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#36:Subset#0.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,244 DEBUG o.a.c.p.RelOptPlanner [main] call#1 generated 1 successors: [rel#40:TableScanLimeRel.LimeConvention.[](table=[DS, STORE_SALES])]
+2020-03-16 18:03:51,244 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 9/7; PHASE = OPTIMIZE; COST = LimeRelOptCost(Infinity, Infinity, Infinity)
+2020-03-16 18:03:51,288 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 LogicalSort(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 25
   LogicalProject(subset=[rel#24:Subset#5.NONE.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 23
@@ -1071,35 +1073,36 @@ digraph G {
 	subset30 -> rel29; rel29 -> subset28;
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0 rel#34:Subset#4.LimeConvention.[]=0.0 rel#36:Subset#0.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:04,432 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:51,291 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+rule [OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] importance 0.0
 rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] importance 0.0
-2020-03-16 17:33:04,433 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])]
-2020-03-16 17:33:04,439 DEBUG o.a.c.p.RelOptPlanner [main] call#3: Apply rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] to [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])]
-2020-03-16 17:33:04,441 TRACE o.a.c.p.RelOptPlanner [main] new TableScanLimeRel#41
-2020-03-16 17:33:04,443 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#41 via EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)
-2020-03-16 17:33:04,444 TRACE o.a.c.p.RelOptPlanner [main] call#3: Rule EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention) arguments [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] created rel#41:TableScanLimeRel
-2020-03-16 17:33:04,445 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#37:Subset#1.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(12.0, 13.0, 0.0)
-2020-03-16 17:33:04,447 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#31:Subset#2.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(8065143.2, 2880418.0, 0.0)
-2020-03-16 17:33:04,448 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] to its parent [rel#33:Subset#3.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.09455612E7, parent cost=1.0E30)
-2020-03-16 17:33:04,450 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,455 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#33:Subset#3.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.32498704E7, 8065145.2, 0.0)
-2020-03-16 17:33:04,459 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.13150156E7, parent cost=1.0E30)
-2020-03-16 17:33:04,460 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,463 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#34:Subset#4.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
-2020-03-16 17:33:04,465 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.4944324640000004E7, parent cost=1.0E30)
-2020-03-16 17:33:04,465 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,466 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#28:Subset#5.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001)
-2020-03-16 17:33:04,472 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] to its parent [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0 (parent importance=0.0, child cost=2.64997428E7, parent cost=1.0E30)
-2020-03-16 17:33:04,475 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,475 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#27:Subset#6.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,475 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#30:Subset#6.LimeConvention.[0, 1]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,476 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0
-2020-03-16 17:33:04,478 TRACE o.a.c.p.RelOptPlanner [main] Register rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE]) in rel#37:Subset#1.LimeConvention.[]
-2020-03-16 17:33:04,478 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#37:Subset#1.LimeConvention.[]] to its parent [rel#31:Subset#2.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=25.0, parent cost=1.09455612E7)
-2020-03-16 17:33:04,479 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#37:Subset#1.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,479 DEBUG o.a.c.p.RelOptPlanner [main] call#3 generated 1 successors: [rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE])]
-2020-03-16 17:33:04,479 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 10/8; PHASE = OPTIMIZE; COST = LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,495 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:51,293 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] rels [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])]
+2020-03-16 18:03:51,296 DEBUG o.a.c.p.RelOptPlanner [main] call#3: Apply rule [EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)] to [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])]
+2020-03-16 18:03:51,297 TRACE o.a.c.p.RelOptPlanner [main] new TableScanLimeRel#41
+2020-03-16 18:03:51,298 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#41 via EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention)
+2020-03-16 18:03:51,298 TRACE o.a.c.p.RelOptPlanner [main] call#3: Rule EnumerableTableScanConverterRule(in:ENUMERABLE,out:LimeConvention) arguments [rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])] created rel#41:TableScanLimeRel
+2020-03-16 18:03:51,299 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#37:Subset#1.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(12.0, 13.0, 0.0)
+2020-03-16 18:03:51,299 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#31:Subset#2.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(8065143.2, 2880418.0, 0.0)
+2020-03-16 18:03:51,300 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] to its parent [rel#33:Subset#3.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=1.09455612E7, parent cost=1.0E30)
+2020-03-16 18:03:51,300 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#31:Subset#2.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,300 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#33:Subset#3.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.32498704E7, 8065145.2, 0.0)
+2020-03-16 18:03:51,300 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.13150156E7, parent cost=1.0E30)
+2020-03-16 18:03:51,301 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,303 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#34:Subset#4.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
+2020-03-16 18:03:51,303 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.4944324640000004E7, parent cost=1.0E30)
+2020-03-16 18:03:51,303 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,303 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#28:Subset#5.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001)
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] to its parent [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0 (parent importance=0.0, child cost=2.64997428E7, parent cost=1.0E30)
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#27:Subset#6.LimeConvention.[]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#30:Subset#6.LimeConvention.[0, 1]] cost was LimeRelOptCost(Infinity, Infinity, Infinity) now LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Register rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE]) in rel#37:Subset#1.LimeConvention.[]
+2020-03-16 18:03:51,304 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#37:Subset#1.LimeConvention.[]] to its parent [rel#31:Subset#2.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=25.0, parent cost=1.09455612E7)
+2020-03-16 18:03:51,305 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#37:Subset#1.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,305 DEBUG o.a.c.p.RelOptPlanner [main] call#3 generated 1 successors: [rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE])]
+2020-03-16 18:03:51,305 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 10/8; PHASE = OPTIMIZE; COST = LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
+2020-03-16 18:03:51,309 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 SortLimeRel(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 29
   ProjectLimeRel(subset=[rel#28:Subset#5.LimeConvention.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 35
@@ -1218,34 +1221,25 @@ digraph G {
 	subset30 -> rel29[color=blue]; rel29 -> subset28[color=blue];
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0 rel#34:Subset#4.LimeConvention.[]=0.0 rel#36:Subset#0.LimeConvention.[]=0.0 rel#37:Subset#1.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:04,503 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
-2020-03-16 17:33:04,509 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,510 DEBUG o.a.c.p.RelOptPlanner [main] call#15: Apply rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] to [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,512 TRACE o.a.c.p.RelOptPlanner [main] new AggregateWithLessCpuLimeRel#42
-2020-03-16 17:33:04,513 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#42 via OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)
-2020-03-16 17:33:04,513 TRACE o.a.c.p.RelOptPlanner [main] call#15: Rule OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention) arguments [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] created rel#42:AggregateWithLessCpuLimeRel
-2020-03-16 17:33:04,597 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#34:Subset#4.LimeConvention.[]] cost was LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001) now LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)
-2020-03-16 17:33:04,598 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.3907379200000003E7, parent cost=2.64997428E7)
-2020-03-16 17:33:04,599 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,608 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#28:Subset#5.LimeConvention.[]] cost was LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001) now LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)
-2020-03-16 17:33:04,615 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] to its parent [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0 (parent importance=0.0, child cost=2.5462797360000003E7, parent cost=2.6503526936148793E7)
-2020-03-16 17:33:04,618 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,622 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#27:Subset#6.LimeConvention.[]] cost was LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001) now LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,624 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#30:Subset#6.LimeConvention.[0, 1]] cost was LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001) now LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,625 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0
-2020-03-16 17:33:04,626 TRACE o.a.c.p.RelOptPlanner [main] Register rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()) in rel#34:Subset#4.LimeConvention.[]
-2020-03-16 17:33:04,628 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.13150156E7, parent cost=2.3907379200000003E7)
-2020-03-16 17:33:04,629 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,629 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.3907379200000003E7, parent cost=2.5462797360000003E7)
-2020-03-16 17:33:04,630 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
-2020-03-16 17:33:04,631 TRACE o.a.c.p.RelOptPlanner [main] OPTIMIZE Rule-match queued: rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,631 DEBUG o.a.c.p.RelOptPlanner [main] call#15 generated 1 successors: [rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,631 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 11/9; PHASE = OPTIMIZE; COST = LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,657 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:51,316 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] importance 0.0
+2020-03-16 18:03:51,317 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,318 DEBUG o.a.c.p.RelOptPlanner [main] call#17: Apply rule [OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention)] to [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,319 TRACE o.a.c.p.RelOptPlanner [main] new AggregateWithMoreCpuLimeRel#42
+2020-03-16 18:03:51,319 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#42 via OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention)
+2020-03-16 18:03:51,319 TRACE o.a.c.p.RelOptPlanner [main] call#17: Rule OptimizeAggregateToHaveMoreCpuRule(in:LimeConvention,out:LimeConvention) arguments [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] created rel#42:AggregateWithMoreCpuLimeRel
+2020-03-16 18:03:51,382 TRACE o.a.c.p.RelOptPlanner [main] Register rel#42:AggregateWithMoreCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()) in rel#34:Subset#4.LimeConvention.[]
+2020-03-16 18:03:51,383 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.13150156E7, parent cost=2.4944324640000004E7)
+2020-03-16 18:03:51,387 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,397 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.4944324640000004E7, parent cost=2.64997428E7)
+2020-03-16 18:03:51,397 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,398 DEBUG o.a.c.p.RelOptPlanner [main] call#17 generated 1 successors: [rel#42:AggregateWithMoreCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,404 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 11/9; PHASE = OPTIMIZE; COST = LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
+2020-03-16 18:03:51,440 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 SortLimeRel(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 29
   ProjectLimeRel(subset=[rel#28:Subset#5.LimeConvention.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 35
-    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 1036945.4400000001), id = 42
+    AggregateLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 2073890.8800000001, 1036945.4400000001), id = 39
       ProjectLimeRel(subset=[rel#33:Subset#3.LimeConvention.[]], s_store_name=[$28]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 5184727.2, 0.0), id = 32
         JoinLimeRel(subset=[rel#31:Subset#2.LimeConvention.[]], condition=[=($7, $23)], joinType=[left]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 0.0, 0.0), id = 38
           TableScanLimeRel(subset=[rel#36:Subset#0.LimeConvention.[]], table=[[DS, STORE_SALES]]): rowcount = 2880404.0, cumulative cost = LimeRelOptCost(2880404.0, 2880405.0, 0.0), id = 40
@@ -1275,21 +1269,166 @@ Set#3, type: RecordType(VARCHAR(50) s_store_name)
 Set#4, type: RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)
 	rel#22:Subset#4.NONE.[], best=null, importance=0.0
 		rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#34:Subset#4.LimeConvention.[], best=rel#42, importance=0.0
+	rel#34:Subset#4.LimeConvention.[], best=rel#39, importance=0.0
 		rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
-		rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)
+		rel#42:AggregateWithMoreCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)
 Set#5, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
 	rel#24:Subset#5.NONE.[], best=null, importance=0.0
 		rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
 	rel#28:Subset#5.LimeConvention.[], best=rel#35, importance=0.0
-		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)
+		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001)
 Set#6, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
 	rel#26:Subset#6.NONE.[0, 1], best=null, importance=0.0
 		rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
 	rel#27:Subset#6.LimeConvention.[], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
 	rel#30:Subset#6.LimeConvention.[0, 1], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)
+
+Graphviz:
+digraph G {
+	root [style=filled,label="Root"];
+	subgraph cluster0{
+		label="Set 0 RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT)";
+		rel8 [label="rel#8:EnumerableTableScan\ntable=[DS, STORE_SALES]\nrows=2880404.0, cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)",color=blue,shape=box]
+		rel40 [label="rel#40:TableScanLimeRel\ntable=[DS, STORE_SALES]\nrows=2880404.0, cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)",color=blue,shape=box]
+		subset15 [label="rel#15:Subset#0.ENUMERABLE.[]"]
+		subset36 [label="rel#36:Subset#0.LimeConvention.[]"]
+	}
+	subgraph cluster1{
+		label="Set 1 RecordType(BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)";
+		rel9 [label="rel#9:EnumerableTableScan\ntable=[DS, STORE]\nrows=12.0, cost=LimeRelOptCost(12.0, 13.0, 0.0)",color=blue,shape=box]
+		rel41 [label="rel#41:TableScanLimeRel\ntable=[DS, STORE]\nrows=12.0, cost=LimeRelOptCost(12.0, 13.0, 0.0)",color=blue,shape=box]
+		subset16 [label="rel#16:Subset#1.ENUMERABLE.[]"]
+		subset37 [label="rel#37:Subset#1.LimeConvention.[]"]
+	}
+	subgraph cluster2{
+		label="Set 2 RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT, BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)";
+		rel17 [label="rel#17:LogicalJoin\nleft=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left\nrows=5184727.2, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
+		rel38 [label="rel#38:JoinLimeRel\nleft=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left\nrows=5184727.2, cost=LimeRelOptCost(8065143.2, 2880418.0, 0.0)",color=blue,shape=box]
+		subset18 [label="rel#18:Subset#2.NONE.[]"]
+		subset31 [label="rel#31:Subset#2.LimeConvention.[]"]
+	}
+	subgraph cluster3{
+		label="Set 3 RecordType(VARCHAR(50) s_store_name)";
+		rel19 [label="rel#19:LogicalProject\ninput=RelSubset#18,s_store_name=$28\nrows=5184727.2, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
+		rel32 [label="rel#32:ProjectLimeRel\ninput=RelSubset#31,s_store_name=$28\nrows=5184727.2, cost=LimeRelOptCost(1.32498704E7, 8065145.2, 0.0)",color=blue,shape=box]
+		subset20 [label="rel#20:Subset#3.NONE.[]"]
+		subset33 [label="rel#33:Subset#3.LimeConvention.[]"]
+	}
+	subgraph cluster4{
+		label="Set 4 RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)";
+		rel21 [label="rel#21:LogicalAggregate\ninput=RelSubset#20,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
+		rel39 [label="rel#39:AggregateLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)",color=blue,shape=box]
+		rel42 [label="rel#42:AggregateWithMoreCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)",shape=box]
+		subset22 [label="rel#22:Subset#4.NONE.[]"]
+		subset34 [label="rel#34:Subset#4.LimeConvention.[]"]
+	}
+	subgraph cluster5{
+		label="Set 5 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
+		rel23 [label="rel#23:LogicalProject\ninput=RelSubset#22,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
+		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001)",color=blue,shape=box]
+		subset24 [label="rel#24:Subset#5.NONE.[]"]
+		subset28 [label="rel#28:Subset#5.LimeConvention.[]"]
+	}
+	subgraph cluster6{
+		label="Set 6 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
+		rel25 [label="rel#25:LogicalSort\ninput=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
+		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001)",color=blue,shape=box]
+		subset26 [label="rel#26:Subset#6.NONE.[0, 1]"]
+		subset27 [label="rel#27:Subset#6.LimeConvention.[]"]
+		subset30 [label="rel#30:Subset#6.LimeConvention.[0, 1]"]
+		subset27 -> subset30;	}
+	root -> subset27;
+	subset15 -> rel8[color=blue];
+	subset36 -> rel40[color=blue];
+	subset16 -> rel9[color=blue];
+	subset37 -> rel41[color=blue];
+	subset18 -> rel17; rel17 -> subset15[label="0"]; rel17 -> subset16[label="1"];
+	subset31 -> rel38[color=blue]; rel38 -> subset36[color=blue,label="0"]; rel38 -> subset37[color=blue,label="1"];
+	subset20 -> rel19; rel19 -> subset18;
+	subset33 -> rel32[color=blue]; rel32 -> subset31[color=blue];
+	subset22 -> rel21; rel21 -> subset20;
+	subset34 -> rel39[color=blue]; rel39 -> subset33[color=blue];
+	subset34 -> rel42; rel42 -> subset33;
+	subset24 -> rel23; rel23 -> subset22;
+	subset28 -> rel35[color=blue]; rel35 -> subset34[color=blue];
+	subset26 -> rel25; rel25 -> subset24;
+	subset30 -> rel29[color=blue]; rel29 -> subset28[color=blue];
+}Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0 rel#34:Subset#4.LimeConvention.[]=0.0 rel#36:Subset#0.LimeConvention.[]=0.0 rel#37:Subset#1.LimeConvention.[]=0.0}
+
+2020-03-16 18:03:51,441 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
+2020-03-16 18:03:51,442 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,442 DEBUG o.a.c.p.RelOptPlanner [main] call#15: Apply rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] to [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,452 TRACE o.a.c.p.RelOptPlanner [main] new AggregateWithLessCpuLimeRel#43
+2020-03-16 18:03:51,452 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#43 via OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)
+2020-03-16 18:03:51,452 TRACE o.a.c.p.RelOptPlanner [main] call#15: Rule OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention) arguments [rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] created rel#43:AggregateWithLessCpuLimeRel
+2020-03-16 18:03:51,514 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#34:Subset#4.LimeConvention.[]] cost was LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001) now LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)
+2020-03-16 18:03:51,515 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.338890648E7, parent cost=2.64997428E7)
+2020-03-16 18:03:51,515 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#28:Subset#5.LimeConvention.[]] cost was LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001) now LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] to its parent [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0 (parent importance=0.0, child cost=2.4944324640000004E7, parent cost=2.6503526936148793E7)
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#28:Subset#5.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#27:Subset#6.LimeConvention.[]] cost was LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001) now LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Subset cost improved: subset [rel#30:Subset#6.LimeConvention.[0, 1]] cost was LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001) now LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#30:Subset#6.LimeConvention.[0, 1]] is 0.0
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Register rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()) in rel#34:Subset#4.LimeConvention.[]
+2020-03-16 18:03:51,516 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] to its parent [rel#34:Subset#4.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.13150156E7, parent cost=2.338890648E7)
+2020-03-16 18:03:51,517 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#33:Subset#3.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,517 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] to its parent [rel#28:Subset#5.LimeConvention.[]] is 0.0 (parent importance=0.0, child cost=2.338890648E7, parent cost=2.4944324640000004E7)
+2020-03-16 18:03:51,517 TRACE o.a.c.p.RelOptPlanner [main] Importance of [rel#34:Subset#4.LimeConvention.[]] is 0.0
+2020-03-16 18:03:51,517 DEBUG o.a.c.p.RelOptPlanner [main] call#15 generated 1 successors: [rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
+2020-03-16 18:03:51,517 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 12/10; PHASE = OPTIMIZE; COST = LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
+2020-03-16 18:03:51,543 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+Original rel:
+SortLimeRel(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 29
+  ProjectLimeRel(subset=[rel#28:Subset#5.LimeConvention.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 35
+    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 518472.72000000003, 1036945.4400000001), id = 43
+      ProjectLimeRel(subset=[rel#33:Subset#3.LimeConvention.[]], s_store_name=[$28]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 5184727.2, 0.0), id = 32
+        JoinLimeRel(subset=[rel#31:Subset#2.LimeConvention.[]], condition=[=($7, $23)], joinType=[left]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 0.0, 0.0), id = 38
+          TableScanLimeRel(subset=[rel#36:Subset#0.LimeConvention.[]], table=[[DS, STORE_SALES]]): rowcount = 2880404.0, cumulative cost = LimeRelOptCost(2880404.0, 2880405.0, 0.0), id = 40
+          TableScanLimeRel(subset=[rel#37:Subset#1.LimeConvention.[]], table=[[DS, STORE]]): rowcount = 12.0, cumulative cost = LimeRelOptCost(12.0, 13.0, 0.0), id = 41
+
+Sets:
+Set#0, type: RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT)
+	rel#15:Subset#0.ENUMERABLE.[], best=rel#8, importance=0.0
+		rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES]), rowcount=2880404.0, cumulative cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)
+	rel#36:Subset#0.LimeConvention.[], best=rel#40, importance=0.0
+		rel#40:TableScanLimeRel.LimeConvention.[](table=[DS, STORE_SALES]), rowcount=2880404.0, cumulative cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)
+Set#1, type: RecordType(BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)
+	rel#16:Subset#1.ENUMERABLE.[], best=rel#9, importance=0.0
+		rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE]), rowcount=12.0, cumulative cost=LimeRelOptCost(12.0, 13.0, 0.0)
+	rel#37:Subset#1.LimeConvention.[], best=rel#41, importance=0.0
+		rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE]), rowcount=12.0, cumulative cost=LimeRelOptCost(12.0, 13.0, 0.0)
+Set#2, type: RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT, BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)
+	rel#18:Subset#2.NONE.[], best=null, importance=0.0
+		rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left), rowcount=5184727.2, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
+	rel#31:Subset#2.LimeConvention.[], best=rel#38, importance=0.0
+		rel#38:JoinLimeRel.LimeConvention.[](left=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left), rowcount=5184727.2, cumulative cost=LimeRelOptCost(8065143.2, 2880418.0, 0.0)
+Set#3, type: RecordType(VARCHAR(50) s_store_name)
+	rel#20:Subset#3.NONE.[], best=null, importance=0.0
+		rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28), rowcount=5184727.2, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
+	rel#33:Subset#3.LimeConvention.[], best=rel#32, importance=0.0
+		rel#32:ProjectLimeRel.LimeConvention.[](input=RelSubset#31,s_store_name=$28), rowcount=5184727.2, cumulative cost=LimeRelOptCost(1.32498704E7, 8065145.2, 0.0)
+Set#4, type: RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)
+	rel#22:Subset#4.NONE.[], best=null, importance=0.0
+		rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
+	rel#34:Subset#4.LimeConvention.[], best=rel#43, importance=0.0
+		rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
+		rel#42:AggregateWithMoreCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)
+		rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)
+Set#5, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
+	rel#24:Subset#5.NONE.[], best=null, importance=0.0
+		rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
+	rel#28:Subset#5.LimeConvention.[], best=rel#35, importance=0.0
+		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)
+Set#6, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
+	rel#26:Subset#6.NONE.[0, 1], best=null, importance=0.0
+		rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
+	rel#27:Subset#6.LimeConvention.[], best=rel#29, importance=0.0
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
+	rel#30:Subset#6.LimeConvention.[0, 1], best=rel#29, importance=0.0
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
 
 Graphviz:
 digraph G {
@@ -1326,21 +1465,22 @@ digraph G {
 		label="Set 4 RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)";
 		rel21 [label="rel#21:LogicalAggregate\ninput=RelSubset#20,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
 		rel39 [label="rel#39:AggregateLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)",shape=box]
-		rel42 [label="rel#42:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)",color=blue,shape=box]
+		rel42 [label="rel#42:AggregateWithMoreCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)",shape=box]
+		rel43 [label="rel#43:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)",color=blue,shape=box]
 		subset22 [label="rel#22:Subset#4.NONE.[]"]
 		subset34 [label="rel#34:Subset#4.LimeConvention.[]"]
 	}
 	subgraph cluster5{
 		label="Set 5 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
 		rel23 [label="rel#23:LogicalProject\ninput=RelSubset#22,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)",color=blue,shape=box]
+		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)",color=blue,shape=box]
 		subset24 [label="rel#24:Subset#5.NONE.[]"]
 		subset28 [label="rel#28:Subset#5.LimeConvention.[]"]
 	}
 	subgraph cluster6{
 		label="Set 6 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
 		rel25 [label="rel#25:LogicalSort\ninput=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)",color=blue,shape=box]
+		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)",color=blue,shape=box]
 		subset26 [label="rel#26:Subset#6.NONE.[0, 1]"]
 		subset27 [label="rel#27:Subset#6.LimeConvention.[]"]
 		subset30 [label="rel#30:Subset#6.LimeConvention.[0, 1]"]
@@ -1356,150 +1496,20 @@ digraph G {
 	subset33 -> rel32[color=blue]; rel32 -> subset31[color=blue];
 	subset22 -> rel21; rel21 -> subset20;
 	subset34 -> rel39; rel39 -> subset33;
-	subset34 -> rel42[color=blue]; rel42 -> subset33[color=blue];
+	subset34 -> rel42; rel42 -> subset33;
+	subset34 -> rel43[color=blue]; rel43 -> subset33[color=blue];
 	subset24 -> rel23; rel23 -> subset22;
 	subset28 -> rel35[color=blue]; rel35 -> subset34[color=blue];
 	subset26 -> rel25; rel25 -> subset24;
 	subset30 -> rel29[color=blue]; rel29 -> subset28[color=blue];
 }Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0 rel#34:Subset#4.LimeConvention.[]=0.0 rel#36:Subset#0.LimeConvention.[]=0.0 rel#37:Subset#1.LimeConvention.[]=0.0}
 
-2020-03-16 17:33:04,658 TRACE o.a.c.p.RelOptPlanner [main] Sorted rule queue:
-2020-03-16 17:33:04,659 DEBUG o.a.c.p.RelOptPlanner [main] Pop match: rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] rels [rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,659 DEBUG o.a.c.p.RelOptPlanner [main] call#17: Apply rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)] to [rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,659 TRACE o.a.c.p.RelOptPlanner [main] new AggregateWithLessCpuLimeRel#43
-2020-03-16 17:33:04,659 DEBUG o.a.c.p.RelOptPlanner [main] Transform to: rel#43 via OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)
-2020-03-16 17:33:04,659 TRACE o.a.c.p.RelOptPlanner [main] call#17: Rule OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention) arguments [rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())] created rel#43:AggregateWithLessCpuLimeRel
-2020-03-16 17:33:04,659 TRACE o.a.c.p.RelOptPlanner [main] Register: rel#43 is equivalent to rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())
-2020-03-16 17:33:04,659 DEBUG o.a.c.p.RelOptPlanner [main] call#17 generated 1 successors: [rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())]
-2020-03-16 17:33:04,659 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 12/10; PHASE = OPTIMIZE; COST = LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,664 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:51,548 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@30457e14; TICK = 13/1; PHASE = CLEANUP; COST = LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
+2020-03-16 18:03:51,556 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 SortLimeRel(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 29
   ProjectLimeRel(subset=[rel#28:Subset#5.LimeConvention.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 35
-    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 1036945.4400000001), id = 42
-      ProjectLimeRel(subset=[rel#33:Subset#3.LimeConvention.[]], s_store_name=[$28]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 5184727.2, 0.0), id = 32
-        JoinLimeRel(subset=[rel#31:Subset#2.LimeConvention.[]], condition=[=($7, $23)], joinType=[left]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 0.0, 0.0), id = 38
-          TableScanLimeRel(subset=[rel#36:Subset#0.LimeConvention.[]], table=[[DS, STORE_SALES]]): rowcount = 2880404.0, cumulative cost = LimeRelOptCost(2880404.0, 2880405.0, 0.0), id = 40
-          TableScanLimeRel(subset=[rel#37:Subset#1.LimeConvention.[]], table=[[DS, STORE]]): rowcount = 12.0, cumulative cost = LimeRelOptCost(12.0, 13.0, 0.0), id = 41
-
-Sets:
-Set#0, type: RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT)
-	rel#15:Subset#0.ENUMERABLE.[], best=rel#8, importance=0.0
-		rel#8:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE_SALES]), rowcount=2880404.0, cumulative cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)
-	rel#36:Subset#0.LimeConvention.[], best=rel#40, importance=0.0
-		rel#40:TableScanLimeRel.LimeConvention.[](table=[DS, STORE_SALES]), rowcount=2880404.0, cumulative cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)
-Set#1, type: RecordType(BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)
-	rel#16:Subset#1.ENUMERABLE.[], best=rel#9, importance=0.0
-		rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE]), rowcount=12.0, cumulative cost=LimeRelOptCost(12.0, 13.0, 0.0)
-	rel#37:Subset#1.LimeConvention.[], best=rel#41, importance=0.0
-		rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE]), rowcount=12.0, cumulative cost=LimeRelOptCost(12.0, 13.0, 0.0)
-Set#2, type: RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT, BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)
-	rel#18:Subset#2.NONE.[], best=null, importance=0.0
-		rel#17:LogicalJoin.NONE.[](left=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left), rowcount=5184727.2, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#31:Subset#2.LimeConvention.[], best=rel#38, importance=0.0
-		rel#38:JoinLimeRel.LimeConvention.[](left=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left), rowcount=5184727.2, cumulative cost=LimeRelOptCost(8065143.2, 2880418.0, 0.0)
-Set#3, type: RecordType(VARCHAR(50) s_store_name)
-	rel#20:Subset#3.NONE.[], best=null, importance=0.0
-		rel#19:LogicalProject.NONE.[](input=RelSubset#18,s_store_name=$28), rowcount=5184727.2, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#33:Subset#3.LimeConvention.[], best=rel#32, importance=0.0
-		rel#32:ProjectLimeRel.LimeConvention.[](input=RelSubset#31,s_store_name=$28), rowcount=5184727.2, cumulative cost=LimeRelOptCost(1.32498704E7, 8065145.2, 0.0)
-Set#4, type: RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)
-	rel#22:Subset#4.NONE.[], best=null, importance=0.0
-		rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#34:Subset#4.LimeConvention.[], best=rel#42, importance=0.0
-		rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
-		rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)
-Set#5, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
-	rel#24:Subset#5.NONE.[], best=null, importance=0.0
-		rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#28:Subset#5.LimeConvention.[], best=rel#35, importance=0.0
-		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)
-Set#6, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
-	rel#26:Subset#6.NONE.[0, 1], best=null, importance=0.0
-		rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#27:Subset#6.LimeConvention.[], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-	rel#30:Subset#6.LimeConvention.[0, 1], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-
-Graphviz:
-digraph G {
-	root [style=filled,label="Root"];
-	subgraph cluster0{
-		label="Set 0 RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT)";
-		rel8 [label="rel#8:EnumerableTableScan\ntable=[DS, STORE_SALES]\nrows=2880404.0, cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)",color=blue,shape=box]
-		rel40 [label="rel#40:TableScanLimeRel\ntable=[DS, STORE_SALES]\nrows=2880404.0, cost=LimeRelOptCost(2880404.0, 2880405.0, 0.0)",color=blue,shape=box]
-		subset15 [label="rel#15:Subset#0.ENUMERABLE.[]"]
-		subset36 [label="rel#36:Subset#0.LimeConvention.[]"]
-	}
-	subgraph cluster1{
-		label="Set 1 RecordType(BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)";
-		rel9 [label="rel#9:EnumerableTableScan\ntable=[DS, STORE]\nrows=12.0, cost=LimeRelOptCost(12.0, 13.0, 0.0)",color=blue,shape=box]
-		rel41 [label="rel#41:TableScanLimeRel\ntable=[DS, STORE]\nrows=12.0, cost=LimeRelOptCost(12.0, 13.0, 0.0)",color=blue,shape=box]
-		subset16 [label="rel#16:Subset#1.ENUMERABLE.[]"]
-		subset37 [label="rel#37:Subset#1.LimeConvention.[]"]
-	}
-	subgraph cluster2{
-		label="Set 2 RecordType(BIGINT SS_SOLD_DATE_SK, BIGINT SS_SOLD_TIME_SK, BIGINT SS_ITEM_SK, BIGINT SS_CUSTOMER_SK, BIGINT SS_CDEMO_SK, BIGINT SS_HDEMO_SK, BIGINT SS_ADDR_SK, BIGINT SS_STORE_SK, BIGINT SS_PROMO_SK, BIGINT SS_TICKET_NUMBER, INTEGER SS_QUANTITY, DECIMAL(7, 2) SS_WHOLESALE_COST, DECIMAL(7, 2) SS_LIST_PRICE, DECIMAL(7, 2) SS_SALES_PRICE, DECIMAL(7, 2) SS_EXT_DISCOUNT_AMT, DECIMAL(7, 2) SS_EXT_SALES_PRICE, DECIMAL(7, 2) SS_EXT_WHOLESALE_COST, DECIMAL(7, 2) SS_EXT_LIST_PRICE, DECIMAL(7, 2) SS_EXT_TAX, DECIMAL(7, 2) SS_COUPON_AMT, DECIMAL(7, 2) SS_NET_PAID, DECIMAL(7, 2) SS_NET_PAID_INC_TAX, DECIMAL(7, 2) SS_NET_PROFIT, BIGINT S_STORE_SK, CHAR(16) S_STORE_ID, DATE S_REC_START_DATE, DATE S_REC_END_DATE, BIGINT S_CLOSED_DATE_SK, VARCHAR(50) S_STORE_NAME, INTEGER S_NUMBER_EMPLOYEES, INTEGER S_FLOOR_SPACE, CHAR(20) S_HOURS, VARCHAR(40) S_MANAGER, INTEGER S_MARKET_ID, VARCHAR(100) S_GEOGRAPHY_CLASS, VARCHAR(100) S_MARKET_DESC, VARCHAR(40) S_MARKET_MANAGER, INTEGER S_DIVISION_ID, VARCHAR(50) S_DIVISION_NAME, INTEGER S_COMPANY_ID, VARCHAR(50) S_COMPANY_NAME, VARCHAR(10) S_STREET_NUMBER, VARCHAR(60) S_STREET_NAME, CHAR(15) S_STREET_TYPE, CHAR(10) S_SUITE_NUMBER, VARCHAR(60) S_CITY, VARCHAR(30) S_COUNTY, CHAR(2) S_STATE, CHAR(10) S_ZIP, VARCHAR(20) S_COUNTRY, DECIMAL(5, 2) S_GMT_OFFSET, DECIMAL(5, 2) S_TAX_PRECENTAGE)";
-		rel17 [label="rel#17:LogicalJoin\nleft=RelSubset#15,right=RelSubset#16,condition==($7, $23),joinType=left\nrows=5184727.2, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel38 [label="rel#38:JoinLimeRel\nleft=RelSubset#36,right=RelSubset#37,condition==($7, $23),joinType=left\nrows=5184727.2, cost=LimeRelOptCost(8065143.2, 2880418.0, 0.0)",color=blue,shape=box]
-		subset18 [label="rel#18:Subset#2.NONE.[]"]
-		subset31 [label="rel#31:Subset#2.LimeConvention.[]"]
-	}
-	subgraph cluster3{
-		label="Set 3 RecordType(VARCHAR(50) s_store_name)";
-		rel19 [label="rel#19:LogicalProject\ninput=RelSubset#18,s_store_name=$28\nrows=5184727.2, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel32 [label="rel#32:ProjectLimeRel\ninput=RelSubset#31,s_store_name=$28\nrows=5184727.2, cost=LimeRelOptCost(1.32498704E7, 8065145.2, 0.0)",color=blue,shape=box]
-		subset20 [label="rel#20:Subset#3.NONE.[]"]
-		subset33 [label="rel#33:Subset#3.LimeConvention.[]"]
-	}
-	subgraph cluster4{
-		label="Set 4 RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)";
-		rel21 [label="rel#21:LogicalAggregate\ninput=RelSubset#20,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel39 [label="rel#39:AggregateLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)",shape=box]
-		rel42 [label="rel#42:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)",color=blue,shape=box]
-		subset22 [label="rel#22:Subset#4.NONE.[]"]
-		subset34 [label="rel#34:Subset#4.LimeConvention.[]"]
-	}
-	subgraph cluster5{
-		label="Set 5 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
-		rel23 [label="rel#23:LogicalProject\ninput=RelSubset#22,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)",color=blue,shape=box]
-		subset24 [label="rel#24:Subset#5.NONE.[]"]
-		subset28 [label="rel#28:Subset#5.LimeConvention.[]"]
-	}
-	subgraph cluster6{
-		label="Set 6 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
-		rel25 [label="rel#25:LogicalSort\ninput=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)",color=blue,shape=box]
-		subset26 [label="rel#26:Subset#6.NONE.[0, 1]"]
-		subset27 [label="rel#27:Subset#6.LimeConvention.[]"]
-		subset30 [label="rel#30:Subset#6.LimeConvention.[0, 1]"]
-		subset27 -> subset30;	}
-	root -> subset27;
-	subset15 -> rel8[color=blue];
-	subset36 -> rel40[color=blue];
-	subset16 -> rel9[color=blue];
-	subset37 -> rel41[color=blue];
-	subset18 -> rel17; rel17 -> subset15[label="0"]; rel17 -> subset16[label="1"];
-	subset31 -> rel38[color=blue]; rel38 -> subset36[color=blue,label="0"]; rel38 -> subset37[color=blue,label="1"];
-	subset20 -> rel19; rel19 -> subset18;
-	subset33 -> rel32[color=blue]; rel32 -> subset31[color=blue];
-	subset22 -> rel21; rel21 -> subset20;
-	subset34 -> rel39; rel39 -> subset33;
-	subset34 -> rel42[color=blue]; rel42 -> subset33[color=blue];
-	subset24 -> rel23; rel23 -> subset22;
-	subset28 -> rel35[color=blue]; rel35 -> subset34[color=blue];
-	subset26 -> rel25; rel25 -> subset24;
-	subset30 -> rel29[color=blue]; rel29 -> subset28[color=blue];
-}Importances: { rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#24:Subset#5.NONE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#28:Subset#5.LimeConvention.[]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0 rel#31:Subset#2.LimeConvention.[]=0.0 rel#33:Subset#3.LimeConvention.[]=0.0 rel#34:Subset#4.LimeConvention.[]=0.0 rel#36:Subset#0.LimeConvention.[]=0.0 rel#37:Subset#1.LimeConvention.[]=0.0}
-
-2020-03-16 17:33:04,666 DEBUG o.a.c.p.RelOptPlanner [main] PLANNER = org.apache.calcite.plan.volcano.VolcanoPlanner@50cf5a23; TICK = 13/1; PHASE = CLEANUP; COST = LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
-2020-03-16 17:33:04,671 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
-Original rel:
-SortLimeRel(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 29
-  ProjectLimeRel(subset=[rel#28:Subset#5.LimeConvention.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 35
-    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 1036945.4400000001), id = 42
+    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 518472.72000000003, 1036945.4400000001), id = 43
       ProjectLimeRel(subset=[rel#33:Subset#3.LimeConvention.[]], s_store_name=[$28]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 5184727.2, 0.0), id = 32
         JoinLimeRel(subset=[rel#31:Subset#2.LimeConvention.[]], condition=[=($7, $23)], joinType=[left]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 0.0, 0.0), id = 38
           TableScanLimeRel(subset=[rel#36:Subset#0.LimeConvention.[]], table=[[DS, STORE_SALES]]): rowcount = 2880404.0, cumulative cost = LimeRelOptCost(2880404.0, 2880405.0, 0.0), id = 40
@@ -1529,21 +1539,22 @@ Set#3, type: RecordType(VARCHAR(50) s_store_name)
 Set#4, type: RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)
 	rel#22:Subset#4.NONE.[], best=null, importance=0.405
 		rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#34:Subset#4.LimeConvention.[], best=rel#42, importance=0.81
+	rel#34:Subset#4.LimeConvention.[], best=rel#43, importance=0.81
 		rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
-		rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)
+		rel#42:AggregateWithMoreCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)
+		rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)
 Set#5, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
 	rel#24:Subset#5.NONE.[], best=null, importance=0.45
 		rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
 	rel#28:Subset#5.LimeConvention.[], best=rel#35, importance=0.9
-		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)
+		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)
 Set#6, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
 	rel#26:Subset#6.NONE.[0, 1], best=null, importance=0.0
 		rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
 	rel#27:Subset#6.LimeConvention.[], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
 	rel#30:Subset#6.LimeConvention.[0, 1], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
 
 Graphviz:
 digraph G {
@@ -1580,21 +1591,22 @@ digraph G {
 		label="Set 4 RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)";
 		rel21 [label="rel#21:LogicalAggregate\ninput=RelSubset#20,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
 		rel39 [label="rel#39:AggregateLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)",shape=box]
-		rel42 [label="rel#42:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)",color=blue,shape=box]
+		rel42 [label="rel#42:AggregateWithMoreCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)",shape=box]
+		rel43 [label="rel#43:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)",color=blue,shape=box]
 		subset22 [label="rel#22:Subset#4.NONE.[]"]
 		subset34 [label="rel#34:Subset#4.LimeConvention.[]"]
 	}
 	subgraph cluster5{
 		label="Set 5 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
 		rel23 [label="rel#23:LogicalProject\ninput=RelSubset#22,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)",color=blue,shape=box]
+		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)",color=blue,shape=box]
 		subset24 [label="rel#24:Subset#5.NONE.[]"]
 		subset28 [label="rel#28:Subset#5.LimeConvention.[]"]
 	}
 	subgraph cluster6{
 		label="Set 6 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
 		rel25 [label="rel#25:LogicalSort\ninput=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)",color=blue,shape=box]
+		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)",color=blue,shape=box]
 		subset26 [label="rel#26:Subset#6.NONE.[0, 1]"]
 		subset27 [label="rel#27:Subset#6.LimeConvention.[]"]
 		subset30 [label="rel#30:Subset#6.LimeConvention.[0, 1]"]
@@ -1610,18 +1622,19 @@ digraph G {
 	subset33 -> rel32[color=blue]; rel32 -> subset31[color=blue];
 	subset22 -> rel21; rel21 -> subset20;
 	subset34 -> rel39; rel39 -> subset33;
-	subset34 -> rel42[color=blue]; rel42 -> subset33[color=blue];
+	subset34 -> rel42; rel42 -> subset33;
+	subset34 -> rel43[color=blue]; rel43 -> subset33[color=blue];
 	subset24 -> rel23; rel23 -> subset22;
 	subset28 -> rel35[color=blue]; rel35 -> subset34[color=blue];
 	subset26 -> rel25; rel25 -> subset24;
 	subset30 -> rel29[color=blue]; rel29 -> subset28[color=blue];
 }Importances: { rel#28:Subset#5.LimeConvention.[]=0.9 rel#34:Subset#4.LimeConvention.[]=0.81 rel#33:Subset#3.LimeConvention.[]=0.7290000000000001 rel#31:Subset#2.LimeConvention.[]=0.6561 rel#36:Subset#0.LimeConvention.[]=0.5904900000000001 rel#37:Subset#1.LimeConvention.[]=0.5904900000000001 rel#24:Subset#5.NONE.[]=0.0 rel#22:Subset#4.NONE.[]=0.0 rel#20:Subset#3.NONE.[]=0.0 rel#18:Subset#2.NONE.[]=0.0 rel#15:Subset#0.ENUMERABLE.[]=0.0 rel#16:Subset#1.ENUMERABLE.[]=0.0 rel#26:Subset#6.NONE.[0, 1]=0.0 rel#30:Subset#6.LimeConvention.[0, 1]=0.0}
 
-2020-03-16 17:33:04,677 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
+2020-03-16 18:03:51,568 TRACE o.a.c.p.RelOptPlanner [main] Root: rel#27:Subset#6.LimeConvention.[]
 Original rel:
 SortLimeRel(subset=[rel#27:Subset#6.LimeConvention.[]], sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(100.0, 3684.1361487904733, 0.0), id = 29
   ProjectLimeRel(subset=[rel#28:Subset#5.LimeConvention.[]], EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 0.0), id = 35
-    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 1036945.4400000001, 1036945.4400000001), id = 42
+    AggregateWithLessCpuLimeRel(subset=[rel#34:Subset#4.LimeConvention.[]], group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(518472.72000000003, 518472.72000000003, 1036945.4400000001), id = 43
       ProjectLimeRel(subset=[rel#33:Subset#3.LimeConvention.[]], s_store_name=[$28]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 5184727.2, 0.0), id = 32
         JoinLimeRel(subset=[rel#31:Subset#2.LimeConvention.[]], condition=[=($7, $23)], joinType=[left]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(5184727.2, 0.0, 0.0), id = 38
           TableScanLimeRel(subset=[rel#36:Subset#0.LimeConvention.[]], table=[[DS, STORE_SALES]]): rowcount = 2880404.0, cumulative cost = LimeRelOptCost(2880404.0, 2880405.0, 0.0), id = 40
@@ -1651,21 +1664,22 @@ Set#3, type: RecordType(VARCHAR(50) s_store_name)
 Set#4, type: RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)
 	rel#22:Subset#4.NONE.[], best=null, importance=0.405
 		rel#21:LogicalAggregate.NONE.[](input=RelSubset#20,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
-	rel#34:Subset#4.LimeConvention.[], best=rel#42, importance=0.81
+	rel#34:Subset#4.LimeConvention.[], best=rel#43, importance=0.81
 		rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)
-		rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)
+		rel#42:AggregateWithMoreCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)
+		rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT()), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)
 Set#5, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
 	rel#24:Subset#5.NONE.[], best=null, importance=0.45
 		rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
 	rel#28:Subset#5.LimeConvention.[], best=rel#35, importance=0.9
-		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)
+		rel#35:ProjectLimeRel.LimeConvention.[](input=RelSubset#34,EXPR$0=$1,s_store_name=$0), rowcount=518472.72000000003, cumulative cost=LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)
 Set#6, type: RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)
 	rel#26:Subset#6.NONE.[0, 1], best=null, importance=0.0
 		rel#25:LogicalSort.NONE.[0, 1](input=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(Infinity, Infinity, Infinity)
 	rel#27:Subset#6.LimeConvention.[], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
 	rel#30:Subset#6.LimeConvention.[0, 1], best=rel#29, importance=0.0
-		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)
+		rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100), rowcount=100.0, cumulative cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)
 
 Graphviz:
 digraph G {
@@ -1702,21 +1716,22 @@ digraph G {
 		label="Set 4 RecordType(VARCHAR(50) s_store_name, BIGINT EXPR$0)";
 		rel21 [label="rel#21:LogicalAggregate\ninput=RelSubset#20,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
 		rel39 [label="rel#39:AggregateLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001)",shape=box]
-		rel42 [label="rel#42:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 9102090.64, 1036945.4400000001)",color=blue,shape=box]
+		rel42 [label="rel#42:AggregateWithMoreCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 1.221292696E7, 1036945.4400000001)",shape=box]
+		rel43 [label="rel#43:AggregateWithLessCpuLimeRel\ninput=RelSubset#33,group={0},EXPR$0=COUNT()\nrows=518472.72000000003, cost=LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001)",color=blue,shape=box]
 		subset22 [label="rel#22:Subset#4.NONE.[]"]
 		subset34 [label="rel#34:Subset#4.LimeConvention.[]"]
 	}
 	subgraph cluster5{
 		label="Set 5 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
 		rel23 [label="rel#23:LogicalProject\ninput=RelSubset#22,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 1.013903608E7, 1036945.4400000001)",color=blue,shape=box]
+		rel35 [label="rel#35:ProjectLimeRel\ninput=RelSubset#34,EXPR$0=$1,s_store_name=$0\nrows=518472.72000000003, cost=LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001)",color=blue,shape=box]
 		subset24 [label="rel#24:Subset#5.NONE.[]"]
 		subset28 [label="rel#28:Subset#5.LimeConvention.[]"]
 	}
 	subgraph cluster6{
 		label="Set 6 RecordType(BIGINT EXPR$0, VARCHAR(50) s_store_name)";
 		rel25 [label="rel#25:LogicalSort\ninput=RelSubset#24,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(Infinity, Infinity, Infinity)",shape=box]
-		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 1.014272021614879E7, 1036945.4400000001)",color=blue,shape=box]
+		rel29 [label="rel#29:SortLimeRel\ninput=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100\nrows=100.0, cost=LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001)",color=blue,shape=box]
 		subset26 [label="rel#26:Subset#6.NONE.[0, 1]"]
 		subset27 [label="rel#27:Subset#6.LimeConvention.[]"]
 		subset30 [label="rel#30:Subset#6.LimeConvention.[0, 1]"]
@@ -1732,27 +1747,28 @@ digraph G {
 	subset33 -> rel32[color=blue]; rel32 -> subset31[color=blue];
 	subset22 -> rel21; rel21 -> subset20;
 	subset34 -> rel39; rel39 -> subset33;
-	subset34 -> rel42[color=blue]; rel42 -> subset33[color=blue];
+	subset34 -> rel42; rel42 -> subset33;
+	subset34 -> rel43[color=blue]; rel43 -> subset33[color=blue];
 	subset24 -> rel23; rel23 -> subset22;
 	subset28 -> rel35[color=blue]; rel35 -> subset34[color=blue];
 	subset26 -> rel25; rel25 -> subset24;
 	subset30 -> rel29[color=blue]; rel29 -> subset28[color=blue];
 }
-2020-03-16 17:33:04,679 TRACE o.a.c.p.RelOptPlanner [main] new JoinLimeRel#44
-2020-03-16 17:33:04,680 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#45
-2020-03-16 17:33:04,680 TRACE o.a.c.p.RelOptPlanner [main] new AggregateLimeRel#46
-2020-03-16 17:33:04,680 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#47
-2020-03-16 17:33:04,680 TRACE o.a.c.p.RelOptPlanner [main] new SortLimeRel#48
-2020-03-16 17:33:04,681 DEBUG o.a.c.p.RelOptPlanner [main] Cheapest plan:
-SortLimeRel(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(1.4286915840000002E7, 1.117966565614879E7, 1036945.4400000001), id = 48
-  ProjectLimeRel(EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(1.4286815840000002E7, 1.117598152E7, 1036945.4400000001), id = 47
-    AggregateLimeRel(group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(1.3768343120000001E7, 1.013903608E7, 1036945.4400000001), id = 46
+2020-03-16 18:03:51,571 TRACE o.a.c.p.RelOptPlanner [main] new JoinLimeRel#44
+2020-03-16 18:03:51,572 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#45
+2020-03-16 18:03:51,573 TRACE o.a.c.p.RelOptPlanner [main] new AggregateWithLessCpuLimeRel#46
+2020-03-16 18:03:51,573 TRACE o.a.c.p.RelOptPlanner [main] new ProjectLimeRel#47
+2020-03-16 18:03:51,573 TRACE o.a.c.p.RelOptPlanner [main] new SortLimeRel#48
+2020-03-16 18:03:51,575 DEBUG o.a.c.p.RelOptPlanner [main] Cheapest plan:
+SortLimeRel(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100]): rowcount = 100.0, cumulative cost = LimeRelOptCost(1.4286915840000002E7, 9624247.49614879, 1036945.4400000001), id = 48
+  ProjectLimeRel(EXPR$0=[$1], s_store_name=[$0]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(1.4286815840000002E7, 9620563.36, 1036945.4400000001), id = 47
+    AggregateWithLessCpuLimeRel(group=[{0}], EXPR$0=[COUNT()]): rowcount = 518472.72000000003, cumulative cost = LimeRelOptCost(1.3768343120000001E7, 8583617.92, 1036945.4400000001), id = 46
       ProjectLimeRel(s_store_name=[$28]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(1.32498704E7, 8065145.2, 0.0), id = 45
         JoinLimeRel(condition=[=($7, $23)], joinType=[left]): rowcount = 5184727.2, cumulative cost = LimeRelOptCost(8065143.2, 2880418.0, 0.0), id = 44
           TableScanLimeRel(table=[[DS, STORE_SALES]]): rowcount = 2880404.0, cumulative cost = LimeRelOptCost(2880404.0, 2880405.0, 0.0), id = 40
           TableScanLimeRel(table=[[DS, STORE]]): rowcount = 12.0, cumulative cost = LimeRelOptCost(12.0, 13.0, 0.0), id = 41
 
-2020-03-16 17:33:04,683 DEBUG o.a.c.p.RelOptPlanner [main] Provenance:
+2020-03-16 18:03:51,576 DEBUG o.a.c.p.RelOptPlanner [main] Provenance:
 SortLimeRel#48
   direct
     rel#29:SortLimeRel.LimeConvention.[0, 1](input=RelSubset#28,sort0=$0,sort1=$1,dir0=ASC,dir1=ASC,fetch=100)
@@ -1765,9 +1781,9 @@ ProjectLimeRel#47
       call#11 rule [LogicalProjectConverterRule(in:NONE,out:LimeConvention)]
         rel#23:LogicalProject.NONE.[](input=RelSubset#22,EXPR$0=$1,s_store_name=$0)
           no parent
-AggregateLimeRel#46
+AggregateWithLessCpuLimeRel#46
   direct
-    rel#42:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())
+    rel#43:AggregateWithLessCpuLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())
       call#15 rule [OptimizeAggregateToHaveLessCpuRule(in:LimeConvention,out:LimeConvention)]
         rel#39:AggregateLimeRel.LimeConvention.[](input=RelSubset#33,group={0},EXPR$0=COUNT())
           call#9 rule [LogicalAggregateConverterRule(in:NONE,out:LimeConvention)]
@@ -1794,10 +1810,10 @@ rel#41:TableScanLimeRel.LimeConvention.[](table=[DS, STORE])
     rel#9:EnumerableTableScan.ENUMERABLE.[](table=[DS, STORE])
       no parent
 
-2020-03-16 17:33:04,684 INFO o.t.l.t.TpcRunner [main] transformed relational expression
+2020-03-16 18:03:51,577 INFO o.t.l.t.TpcRunner [main] transformed relational expression
 48:SortLimeRel(sort0=[$0], sort1=[$1], dir0=[ASC], dir1=[ASC], fetch=[100])
   47:ProjectLimeRel(EXPR$0=[$1], s_store_name=[$0])
-    46:AggregateLimeRel(group=[{0}], EXPR$0=[COUNT()])
+    46:AggregateWithLessCpuLimeRel(group=[{0}], EXPR$0=[COUNT()])
       45:ProjectLimeRel(s_store_name=[$28])
         44:JoinLimeRel(condition=[=($7, $23)], joinType=[left])
           40:TableScanLimeRel(table=[[DS, STORE_SALES]])
