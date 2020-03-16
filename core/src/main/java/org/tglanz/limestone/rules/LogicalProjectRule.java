@@ -8,11 +8,11 @@ import org.apache.calcite.rel.logical.LogicalProject;
 import org.tglanz.limestone.rels.LimeRel;
 import org.tglanz.limestone.rels.ProjectLimeRel;
 
-public class LogicalProjectConverterRule extends ConverterRule {
+public class LogicalProjectRule extends ConverterRule {
 
-    public static final RelOptRule Instance = new LogicalProjectConverterRule();
+    public static final RelOptRule Instance = new LogicalProjectRule();
 
-    private LogicalProjectConverterRule() {
+    private LogicalProjectRule() {
         super(LogicalProject.class, Convention.NONE, LimeRel.Convention, "LogicalProjectConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }

@@ -1,8 +1,13 @@
 package org.tglanz.limestone.tpc;
 
 import org.apache.calcite.plan.RelOptCostFactory;
+import org.apache.calcite.plan.RelOptRule;
+import org.apache.commons.collections4.IterableUtils;
+import org.apache.commons.collections4.iterators.IteratorChain;
+import org.tglanz.limestone.CoreBootstrap;
+import org.tglanz.limestone.optimization.LimeRelOptCostFactory;
+import org.tglanz.limestone.optimization.OptimizationBootstrap;
 import org.tglanz.limestone.rels.LimeRel;
-import org.tglanz.limestone.rules.RulesSets;
 import org.tglanz.limestone.utils.FileReader;
 import org.apache.calcite.config.Lex;
 import org.apache.calcite.plan.RelTraitSet;
@@ -19,8 +24,12 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class TpcRunner {
 
@@ -72,11 +81,22 @@ public class TpcRunner {
                 .setLex(Lex.MYSQL)
                 .build();
 
+        final LimeRelOptCostFactory costFactory = new LimeRelOptCostFactory();
+
         return Frameworks.newConfigBuilder()
                 .parserConfig(parserConfig)
-                .ruleSets(RulesSets.standard)
+                .ruleSets(createRuleSet())
+                .costFactory(costFactory)
                 .defaultSchema(schema)
                 .build();
+    }
+
+    private static RuleSet createRuleSet() {
+        List<RelOptRule> rules = new LinkedList<>();
+        new CoreBootstrap().getAllRules().forEach(rules::add);
+        new OptimizationBootstrap().getAllRules().forEach(rules::add);
+        return RuleSets.ofList(rules);
+
     }
 
     private static RelNode planQuery(Planner planner, String query)

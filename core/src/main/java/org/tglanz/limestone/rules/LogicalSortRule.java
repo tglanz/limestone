@@ -8,11 +8,11 @@ import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalSort;
 
-public class LogicalSortConverterRule extends ConverterRule {
+public class LogicalSortRule extends ConverterRule {
 
-    public static final RelOptRule Instance = new LogicalSortConverterRule();
+    public static final RelOptRule Instance = new LogicalSortRule();
 
-    private LogicalSortConverterRule() {
+    private LogicalSortRule() {
         super(LogicalSort.class, Convention.NONE, LimeRel.Convention, "LogicalSortConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }

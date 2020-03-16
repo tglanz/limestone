@@ -8,11 +8,11 @@ import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalAggregate;
 
-public class LogicalAggregateConverterRule extends ConverterRule {
+public class LogicalAggregateRule extends ConverterRule {
 
-    public static final RelOptRule Instance = new LogicalAggregateConverterRule();
+    public static final RelOptRule Instance = new LogicalAggregateRule();
 
-    private LogicalAggregateConverterRule() {
+    private LogicalAggregateRule() {
         super(LogicalAggregate.class, Convention.NONE, LimeRel.Convention, "LogicalAggregateConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }
@@ -29,7 +29,6 @@ public class LogicalAggregateConverterRule extends ConverterRule {
                 source.getCluster(),
                 source.getTraitSet().replace(LimeRel.Convention),
                 input,
-                source.indicator,
                 source.getGroupSet(),
                 source.getGroupSets(),
                 source.getAggCallList());

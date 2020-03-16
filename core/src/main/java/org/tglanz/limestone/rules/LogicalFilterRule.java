@@ -8,11 +8,11 @@ import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalFilter;
 
-public class LogicalFilterConverterRule extends ConverterRule {
+public class LogicalFilterRule extends ConverterRule {
 
-    public static final RelOptRule Instance = new LogicalFilterConverterRule();
+    public static final RelOptRule Instance = new LogicalFilterRule();
 
-    private LogicalFilterConverterRule() {
+    private LogicalFilterRule() {
         super(LogicalFilter.class, Convention.NONE, LimeRel.Convention, "LogicalFilterConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }

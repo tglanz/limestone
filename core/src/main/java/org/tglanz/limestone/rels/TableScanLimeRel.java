@@ -1,8 +1,6 @@
 package org.tglanz.limestone.rels;
 
-import org.tglanz.limestone.rules.RulesSets;
 import org.apache.calcite.plan.RelOptCluster;
-import org.apache.calcite.plan.RelOptPlanner;
 import org.apache.calcite.plan.RelOptTable;
 import org.apache.calcite.plan.RelTraitSet;
 import org.apache.calcite.rel.core.TableScan;
@@ -20,11 +18,5 @@ public class TableScanLimeRel
                 Objects.requireNonNull(table, "table must not be null"));
 
         assert getConvention() == Convention;
-    }
-
-    @Override
-    public void register(RelOptPlanner planner) {
-        RulesSets.standard.forEach(planner::addRule);
-        super.register(planner);
     }
 }

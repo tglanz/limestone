@@ -58,9 +58,4 @@ if [[ $should_rebuild == true ]]; then
     mvn clean package
 fi
 
-main_class="org.tglanz.limestone.tpc.TpcRunner"
-
-java \
-    -Dlog4j.configuration.file=log4j.xml \
-    -cp "target/*:core/target/*:tpc/target/*" \
-    $main_class $@
+java -cp "tpc/target/*" org.tglanz.limestone.tpc.TpcRunner $@

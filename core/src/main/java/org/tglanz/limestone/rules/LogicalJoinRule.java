@@ -8,11 +8,11 @@ import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalJoin;
 
-public class LogicalJoinConverterRule extends ConverterRule {
+public class LogicalJoinRule extends ConverterRule {
 
-    public static final RelOptRule Instance = new LogicalJoinConverterRule();
+    public static final RelOptRule Instance = new LogicalJoinRule();
 
-    private LogicalJoinConverterRule() {
+    private LogicalJoinRule() {
         super(LogicalJoin.class, Convention.NONE, LimeRel.Convention,  "LogicalJoinConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }

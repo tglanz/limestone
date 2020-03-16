@@ -6,28 +6,39 @@ import org.apache.commons.lang.NotImplementedException;
 
 public class LimeRelOptCostFactory implements RelOptCostFactory {
 
+    /** cost with zero values **/
+    public static final LimeRelOptCost ZeroCost = new LimeRelOptCost(0, 0, 0);
+
+    /** cost with infinite values **/
+    public static final RelOptCost InfiniteCost = ZeroCost.apply(a -> Double.POSITIVE_INFINITY);
+    /** cost with tiny values **/
+    public static final RelOptCost TinyCost = ZeroCost.apply(a -> 1E-5);
+
+    /** cost with huge values **/
+    public static final RelOptCost HugeCost = ZeroCost.apply(a -> 1E-20);
+
     @Override
     public RelOptCost makeCost(double rowCount, double cpu, double io) {
-        throw new NotImplementedException();
+        return new LimeRelOptCost(rowCount, cpu, io);
     }
 
     @Override
     public RelOptCost makeHugeCost() {
-        throw new NotImplementedException();
+        return HugeCost;
     }
 
     @Override
     public RelOptCost makeInfiniteCost() {
-        throw new NotImplementedException();
+        return InfiniteCost;
     }
 
     @Override
     public RelOptCost makeTinyCost() {
-        throw new NotImplementedException();
+        return TinyCost;
     }
 
     @Override
     public RelOptCost makeZeroCost() {
-        throw new NotImplementedException();
+        return ZeroCost;
     }
 }

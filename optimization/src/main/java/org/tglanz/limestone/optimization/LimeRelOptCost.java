@@ -64,20 +64,42 @@ public class LimeRelOptCost implements RelOptCost {
 
     @Override
     public boolean isInfinite() {
-        throw new NotImplementedException();
+        return Double.isInfinite(getRows()) ||
+                Double.isInfinite(getCpu()) ||
+                Double.isInfinite(getIo());
     }
 
     @Override
     public boolean equals(RelOptCost cost) {
-        return cost != null &&
-                getRows() == cost.getRows() &&
-                getCpu() == cost.getCpu() &&
-                getIo() == cost.getIo();
+        // this != null
+        if (cost == null) {
+            return false;
+        }
+
+        // infinite != anthying
+        if (isInfinite() || cost.isInfinite()) {
+            return false;
+        }
+
+        // check all relevant values
+        return getRows() == cost.getRows() && getCpu() == cost.getCpu() && getIo() == cost.getIo();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s(%s, %s, %s)", getClass().getSimpleName(), getRows(), getCpu(), getIo());
+    }
+
+    @Override
+    protected LimeRelOptCost clone() {
+        return new LimeRelOptCost(getRows(), getCpu(), getIo());
     }
 
     @Override
     public boolean isEqWithEpsilon(RelOptCost cost) {
-        throw new NotImplementedException();
+        final RelOptCost diff = mergeWith(cost, (a, b) -> a - b);
+        final double sum = diff.getRows() + diff.getCpu() + diff.getIo();
+        return sum < 1e5;
     }
 
     @Override
@@ -128,11 +150,11 @@ public class LimeRelOptCost implements RelOptCost {
      * @param merger merge function to operate on each corresponding field
      * @return merged cost
      */
-    private LimeRelOptCost mergeWith(RelOptCost cost, BiFunction<Double, Double, Double> merger) {
+    public LimeRelOptCost mergeWith(RelOptCost cost, BiFunction<Double, Double, Double> merger) {
         return new LimeRelOptCost(
-                merger.apply(getRows(), cost.getRows()),
-                merger.apply(getCpu(), cost.getCpu()),
-                merger.apply(getIo(), cost.getIo()));
+                    merger.apply(getRows(), cost.getRows()),
+                    merger.apply(getCpu(), cost.getCpu()),
+                    merger.apply(getIo(), cost.getIo()));
     }
 
     /**
@@ -152,7 +174,7 @@ public class LimeRelOptCost implements RelOptCost {
      * @param merger merge function to operate on each corresponding field
      * @return merged cost
      */
-    private LimeRelOptCost apply(Function<Double, Double> application) {
+    public LimeRelOptCost apply(Function<Double, Double> application) {
         return new LimeRelOptCost(
                 application.apply(getRows()),
                 application.apply(getCpu()),
@@ -165,7 +187,7 @@ public class LimeRelOptCost implements RelOptCost {
      * @param cost to calculate the unified cost value of
      * @return unified cost value
      */
-    private static double unifiedCost(RelOptCost cost) {
+    private double unifiedCost(RelOptCost cost) {
         // not the actual implementation, for now
         final double weightedSum =
                 cost.getRows() * WeightOfRows +

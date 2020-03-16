@@ -11,7 +11,7 @@ public class ApplicationArguments {
     public static final String DefaultBenchmark = "ds";
 
     // default query-path argument value
-    public static final String DefaultQueryPath = "tpc/src/main/resources/ds-queries/-1.sql";
+    public static final String DefaultQueryPath = "tpc/src/main/resources/ds-queries/-3.sql";
 
     // default scale argument value
     public static final String DefaultScale = "1";

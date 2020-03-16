@@ -8,11 +8,11 @@ import org.apache.calcite.plan.RelOptRule;
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.convert.ConverterRule;
 
-public class EnumerableTableScanConverterRule extends ConverterRule {
+public class EnumerableTableScanRule extends ConverterRule {
 
-    public static final RelOptRule Instance = new EnumerableTableScanConverterRule();
+    public static final RelOptRule Instance = new EnumerableTableScanRule();
 
-    private EnumerableTableScanConverterRule() {
+    private EnumerableTableScanRule() {
         super(EnumerableTableScan.class, EnumerableConvention.INSTANCE, LimeRel.Convention, "EnumerableTableScanConverterRule");
         assert getOutConvention() == LimeRel.Convention;
     }

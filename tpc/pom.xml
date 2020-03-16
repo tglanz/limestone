@@ -32,5 +32,11 @@
             <artifactId>limestone-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.tglanz.limestone</groupId>
+            <artifactId>limestone-optimization</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
