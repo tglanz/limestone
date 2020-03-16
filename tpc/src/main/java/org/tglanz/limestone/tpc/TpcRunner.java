@@ -1,5 +1,6 @@
 package org.tglanz.limestone.tpc;
 
+import org.apache.calcite.plan.RelOptCostFactory;
 import org.tglanz.limestone.rels.LimeRel;
 import org.tglanz.limestone.rules.RulesSets;
 import org.tglanz.limestone.utils.FileReader;
@@ -64,7 +65,6 @@ public class TpcRunner {
         logger.debug(String.format("query:\n%s", query));
         return query;
     }
-
 
     private static FrameworkConfig createFrameworkConfig(SchemaPlus schema) {
         final SqlParser.Config parserConfig = SqlParser.configBuilder()

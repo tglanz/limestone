@@ -10,6 +10,7 @@
     <modules>
         <module>core</module>
         <module>tpc</module>
+        <module>optimization</module>
     </modules>
 
     <properties>
