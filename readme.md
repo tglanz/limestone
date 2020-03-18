@@ -1,6 +1,6 @@
 ## prerequisites
 
-- [jdk 8](https://openjdk.java.net/install/)
+ -[jdk 8](https://openjdk.java.net/install/)
 - [maven](https://maven.apache.org/)
 
 ## project layout
