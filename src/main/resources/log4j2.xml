@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%highlight{%level}{}] [%t] %logger - %m%n"/>
+        </Console>
+
+        <Console name="InfoStdoutAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%highlight{%level}{}] [%t] %logger - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </Console>
+
+        <File name="GeneralFileAppender" fileName="logs/general.log" append="false">
+            <PatternLayout pattern="%d %p %logger [%t] %m%n" />
+        </File>
+
+        <File name="CalciteFileAppender" fileName="logs/calcite.log" append="false">
+            <PatternLayout pattern="%d %p %logger [%t] %m%n" />
+        </File>
+
+        <File name="LimestoneFileAppender" fileName="logs/limestone.log" append="false">
+            <PatternLayout pattern="%d %p %logger [%t] %m%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="GeneralFileAppender" />
+        </Root>
+
+        <Logger name="tglanz.limestone" level="debug">
+            <AppenderRef ref="InfoStdoutAppender" />
+            <AppenderRef ref="LimestoneFileAppender" />
+        </Logger>
+
+        <Logger name="org.apache.calcite" level="trace">
+            <AppenderRef ref="CalciteFileAppender" />
+        </Logger>
+    </Loggers>
+</Configuration>

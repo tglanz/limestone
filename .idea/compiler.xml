@@ -6,16 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="limestone-tpc" />
-        <module name="limestone-core" />
-        <module name="limestone-optimization" />
+        <module name="limestone" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="limestone-aggregator" target="1.8" />
-      <module name="limestone-core" target="1.8" />
-      <module name="limestone-optimization" target="1.8" />
-      <module name="limestone-tpc" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

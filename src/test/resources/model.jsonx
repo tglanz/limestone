@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "defaultSchema": "tpch",
+  "schemas": [
+    {
+      "type": "custom",
+      "name": "tpch",
+      "factory": "tglanz.limestone.schema.LimeTpchSchemaFactory",
+      "operand": {
+      }
+    }
+  ]
+}
